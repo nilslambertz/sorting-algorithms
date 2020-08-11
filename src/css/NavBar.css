@@ -1,0 +1,26 @@
+#navbar {
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0,0,0,0.04);
+}
+
+.navElem {
+    height: 80px;
+    line-height: 80px;
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 27px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    transition: font-size 0.1s;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+.navElem:hover {
+    font-size: 29px;
+    cursor: pointer;
+}
