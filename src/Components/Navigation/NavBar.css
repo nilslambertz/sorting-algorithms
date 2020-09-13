@@ -1,5 +1,6 @@
 #navbar {
-    height: 80px;
+    position: relative;
+    line-height: 80px;
     width: 100%;
     text-align: center;
     background-color: rgba(0,0,0,0.04);

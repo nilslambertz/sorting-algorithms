@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/NavBar.css';
+import './NavBar.css';
 
 function NavElem({title, algoNumber, setAlgorithm, currentAlgorithm}) {
     function algoChange() {
