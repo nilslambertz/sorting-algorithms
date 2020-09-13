@@ -20,7 +20,7 @@ body {
 #root {
   height: 100%;
   width: 100%;
-  background: url("../images/backgroundBlue.png") no-repeat center;
+  background: url("./images/backgroundGray.png") no-repeat center;
   background-size: cover;
 }
 
