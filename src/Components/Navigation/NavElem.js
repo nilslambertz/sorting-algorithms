@@ -8,7 +8,7 @@ function NavElem({title, algoNumber, setAlgorithm, currentAlgorithm}) {
 
     return (
         <div className={"navElem" + (parseInt(algoNumber) === parseInt(currentAlgorithm) ? " active" : "")} onClick={algoChange}>
-            {title}
+            <span>{title}</span>
         </div>
     );
 }
