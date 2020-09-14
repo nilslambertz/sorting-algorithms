@@ -1,5 +1,43 @@
 .App {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 54, 124, 0.7);
+}
+
+#settingsDiv {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  user-select: none;
+  color: white;
+  text-align: center;
+}
+
+#settingsDiv table {
+  display: inline-block;
+  border-collapse: collapse;
+}
+
+#settingsDiv td {
+  padding: 0 30px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  border-left: 1px solid rgba(255,255,255,0.1);
+  transition: opacity 0.3s;
+}
+
+.settingsButton {
+  text-shadow: 3px 3px 4px black;
+  font-size: 25px;
+  cursor: pointer;
+  transition: text-shadow 0.1s;
+}
+
+.settingsButton:hover {
+  text-shadow: 4px 4px 6px black;
+}
+
+.disabled {
+  opacity: 0.1;
+  cursor: default;
 }
