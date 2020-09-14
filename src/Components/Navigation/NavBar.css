@@ -1,6 +1,8 @@
 #navbar {
     position: relative;
+    user-select: none;
     line-height: 80px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
     width: 100%;
     text-align: center;
     background-color: rgba(0,0,0,0.04);
@@ -15,7 +17,7 @@
     font-size: 27px;
     text-shadow: 3px 3px 4px black;
     font-family: 'Roboto', 'Arial', sans-serif;
-    transition: transform 0.2s;
+    transition: transform 0.2s, opacity 0.3s;
 }
 
 .navElem:hover {
@@ -26,5 +28,14 @@
 .active {
     color: white;
     font-weight: bold;
+}
+
+.disabled {
+    opacity: 0.1;
+}
+
+.disabled:hover {
+    cursor: default;
+    transform: none;
 }
 

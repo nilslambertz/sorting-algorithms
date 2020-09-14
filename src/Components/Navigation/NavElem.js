@@ -1,13 +1,21 @@
 import React from 'react';
 import './NavBar.css';
 
-function NavElem({title, algoNumber, setAlgorithm, currentAlgorithm}) {
+function NavElem({title, algoNumber, setAlgorithm, currentAlgorithm, animationRunning}) {
     function algoChange() {
-        setAlgorithm(algoNumber)
+        if(animationRunning) return;
+        setAlgorithm(algoNumber);
+    }
+
+    let className = "navElem";
+    if(parseInt(algoNumber) === parseInt(currentAlgorithm)) {
+        className += " active";
+    } else if(animationRunning){
+        className += " disabled"
     }
 
     return (
-        <div className={"navElem" + (parseInt(algoNumber) === parseInt(currentAlgorithm) ? " active" : "")} onClick={algoChange}>
+        <div className={className} onClick={algoChange}>
             <span>{title}</span>
         </div>
     );
