@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ArraySortReact/precache-manifest.1cd746e2df2f9383734140e61dc97651.js"
+  "/ArraySortReact/precache-manifest.fe0ee219b3017d83e3727a5b9eaafb3d.js"
 );
 
 self.addEventListener('message', (event) => {
