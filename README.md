@@ -3,6 +3,6 @@ Similar project to my [Sorting Visualizer](https://github.com/nilslambertz/SortV
 Try it out on the [demo website](https://nilslambertz.github.io/ArraySortReact)!
 
 ## Current algorithms
-bublesort  
+bubblesort  
 insertionsort  
 mergesort  
