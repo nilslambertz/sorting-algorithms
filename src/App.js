@@ -22,11 +22,14 @@ class App extends React.Component {
     }
 
     setAlgorithm = (nr) => {
-        this.setState({algorithm: nr});
-        animation.changeAlgorithm(nr);
+        nr = parseInt(nr);
+        this.setState({algorithm: nr}, () => {
+            animation.changeAlgorithm(nr);
+        });
     }
 
     changeSpeed = (e) => {
+        e = parseInt(e);
         if(this.state.animationRunning) return;
         this.setState({animationSpeed: e.target.value});
         animation.changeSpeed(e.target.value);
@@ -34,7 +37,7 @@ class App extends React.Component {
 
     changeElemNumber = (event) => {
         if(this.state.animationRunning) return;
-        this.setState({numberOfElements: event.target.value}, () => {
+        this.setState({numberOfElements: parseInt(event.target.value)}, () => {
             this.createArray();
         });
     }
