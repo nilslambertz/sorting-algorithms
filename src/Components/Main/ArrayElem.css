@@ -1,6 +1,19 @@
+#mainDiv.sorted .arrayElem {
+    background-color: #2da41f;
+    transition: background-color 0.5s;
+}
+
 .arrayElem {
     position: relative;
     display: inline-block;
     vertical-align: top;
     background-color: #c8c8c8;
+}
+
+.firstHighlight {
+    background-color: #3ca1c3;
+}
+
+.secondHighlight {
+    background-color: #2a81d7;
 }
