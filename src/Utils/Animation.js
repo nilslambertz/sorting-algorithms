@@ -3,6 +3,7 @@ import { arrayIsSorted } from "./Functions";
 import {getInsertionSortSwap} from "../Algorithms/Insertionsort";
 import {getMergeSortSwap} from "../Algorithms/Mergesort";
 import {getQuickSortSwap} from "../Algorithms/Quicksort";
+import {getCocktailshakersortSwap} from "../Algorithms/Coktailshakersort";
 
 class Animation {
     setState;
@@ -63,6 +64,13 @@ class Animation {
                 this.animate(this.quickSortStep);
                 return true;
             }
+            case 4: {
+                if(this.swap.length === 0) {
+                    this.swap = getCocktailshakersortSwap(this.array.slice(0));
+                }
+                this.animate(this.cocktailshakerSortStep);
+                return true;
+            }
             default: {
                 alert("error");
                 return false;
@@ -102,6 +110,20 @@ class Animation {
             this.setState({array: this.array, firstIndex: first, secondIndex: first+1});
         } else {
             this.setState({firstIndex: first+1, secondIndex: first});
+        }
+    }
+
+    cocktailshakerSortStep = () => {
+        let x = this.swap.shift();
+        let firstIndex = x.firstIndex;
+
+        if(x.swapped === true) {
+            let temp = this.array[firstIndex];
+            this.array[firstIndex] = this.array[firstIndex+1];
+            this.array[firstIndex+1] = temp;
+            this.setState({array: this.array, firstIndex: firstIndex, secondIndex: firstIndex+1});
+        } else {
+            this.setState({array: this.array, firstIndex: firstIndex+1, secondIndex: firstIndex});
         }
     }
 
