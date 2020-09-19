@@ -4,5 +4,7 @@ Try it out on the [demo website](https://nilslambertz.github.io/ArraySortReact)!
 
 ## Current algorithms
 bubblesort  
+cocktailshakersort  
 insertionsort  
 mergesort  
+quicksort  
