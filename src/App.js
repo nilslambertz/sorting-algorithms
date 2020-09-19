@@ -46,8 +46,7 @@ class App extends React.Component {
         if(this.state.animationRunning) {
             animation.endAnimation();
             this.setState({animationRunning: false});
-
-        } else {
+        } else if(this.state.sorted === false) {
             this.setState({animationRunning: true});
             animation.startAnimation();
         }
