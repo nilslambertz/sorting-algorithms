@@ -28,6 +28,7 @@ class App extends React.Component {
         nr = parseInt(nr);
         this.setState({algorithm: nr}, () => {
             animation.changeAlgorithm(nr);
+            this.setState({firstIndex: null, secondIndex: null, leftBorder: null, rightBorder: null, mid: null});
         });
     }
 
