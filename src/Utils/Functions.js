@@ -4,3 +4,12 @@ export const arrayIsSorted = (arr) => {
     }
     return true;
 }
+
+export const createNewArray = (elems, max) => {
+    let allValues = [...Array(max).keys()];
+    let array = [];
+    for(let i = 0; i < elems; i++) {
+        array[i] = allValues.splice(Math.floor(Math.random() * allValues.length), 1)[0] + 10;
+    }
+    return array;
+}
