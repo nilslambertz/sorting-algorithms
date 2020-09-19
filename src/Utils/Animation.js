@@ -1,6 +1,7 @@
 import { getBubbleSortSwap } from "../Algorithms/Bubblesort";
 import { arrayIsSorted } from "./Functions";
-import {getInsertionSortSwap} from "../Algorithms/InsertionSort";
+import {getInsertionSortSwap} from "../Algorithms/Insertionsort";
+import {getMergeSortSwap} from "../Algorithms/Mergesort";
 
 class Animation {
     setState;
@@ -47,6 +48,13 @@ class Animation {
                 this.animate(this.insertionSortStep);
                 return true;
             }
+            case 2: {
+                if(this.swap.length === 0) {
+                    this.swap = getMergeSortSwap(this.array.slice(0));
+                }
+                this.animate(this.mergeSortStep);
+                return true;
+            }
             default: {
                 alert("error");
                 return false;
@@ -58,7 +66,7 @@ class Animation {
         clearInterval(this.interval);
         this.setState({animationRunning: false});
         if(finished) {
-            this.setState({firstIndex: null, secondIndex: null});
+            this.setState({firstIndex: null, secondIndex: null, leftBorder: null, rightBorder: null, mid: null});
             if(arrayIsSorted(this.array)) {
                 this.setState({sorted: true});
             }
@@ -103,6 +111,42 @@ class Animation {
             this.setState({array: this.array, firstIndex: null, secondIndex: correctPosition});
         } else {
             this.setState({firstIndex: firstIndex, secondIndex: null});
+        }
+    }
+
+    mergeSortStep = () => {
+        let x = this.swap.shift();
+        if(x.inMergeSort === true) {
+            if(x.firstIndex !== undefined) {
+                let firstIndex = x.firstIndex;
+                let secondIndex = x.secondIndex;
+                if(x.swapped === true) {
+                    let temp = this.array[firstIndex];
+                    this.array[firstIndex] = this.array[secondIndex];
+                    this.array[secondIndex] = temp;
+                    this.setState({array: this.array, firstIndex: secondIndex, secondIndex: firstIndex});
+                } else {
+                    this.setState({array: this.array, firstIndex: firstIndex, secondIndex: secondIndex});
+                }
+            } else {
+                this.setState({leftBorder: x.leftBorder, rightBorder: x.rightBorder, mid: x.mid, firstIndex: null, secondIndex: null});
+            }
+        } else {
+            let leftBorder = x.leftBorder;
+            let rightBorder = x.rightBorder;
+            let mid = x.mid;
+            let firstIndex = x.firstIndex;
+            let secondIndex = x.secondIndex;
+            if(x.moved === false) {
+                this.setState({leftBorder: leftBorder, rightBorder: rightBorder, mid: mid, firstIndex: firstIndex, secondIndex: secondIndex});
+            } else {
+                for(let j = secondIndex; j > firstIndex; j--) {
+                    let temp = this.array[j];
+                    this.array[j] = this.array[j-1];
+                    this.array[j-1] = temp;
+                }
+                this.setState({array: this.array, leftBorder: leftBorder, rightBorder: rightBorder, mid: mid, firstIndex: firstIndex, secondIndex: secondIndex});
+            }
         }
     }
 }
