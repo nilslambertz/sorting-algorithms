@@ -20,6 +20,10 @@ class Main extends React.Component {
         let margin = Math.floor((600 - len) / 300);
         let first = this.props.firstIndex;
         let second = this.props.secondIndex;
+        let leftBorder = this.props.leftBorder;
+        let rightBorder = this.props.rightBorder;
+        let mid = this.props.mid;
+        let notNull = mid !== null && leftBorder !== null && rightBorder !== null;
 
         let elemStyle = {
             width: width,
@@ -28,6 +32,10 @@ class Main extends React.Component {
 
         return this.props.array.map(function(c,i,a) {
             let special = null;
+            if(leftBorder <= i && i <= rightBorder && notNull) {
+                if(i < mid) special = "leftHalf";
+                else special = "rightHalf";
+            }
             if(i === first) special = "firstHighlight";
             if(i === second) special = "secondHighlight";
             return <ArrayElem style={{...elemStyle, height: c + "px"}} key={i} array={a} index={i} special={special}/>;
