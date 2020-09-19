@@ -1,19 +1,19 @@
 #mainDiv.sorted .arrayElem {
-    background-color: #2da41f;
-    transition: background-color 0.5s;
+    background: #2da41f;
+    transition: background 0.5s;
 }
 
 .arrayElem {
     position: relative;
     display: inline-block;
     vertical-align: top;
-    background-color: #c8c8c8;
+    background: #c8c8c8 linear-gradient(to bottom, #aeaeae 50px, #c8c8c8 200px);
 }
 
 .firstHighlight {
-    background-color: #3ca1c3;
+    background: #3ca1c3 linear-gradient(to bottom, #287e98 50px, #3ca1c3 200px);
 }
 
 .secondHighlight {
-    background-color: #2a81d7;
+    background: #2a81d7 linear-gradient(to bottom, #2162a0 50px, #2a81d7 200px);
 }
