@@ -1,9 +1,9 @@
-import { getBubbleSortSwap } from "../Algorithms/Bubblesort";
+import { getBubbleSortSwap } from "../Algorithms/BubbleSort";
 import { arrayIsSorted } from "./Functions";
-import {getInsertionSortSwap} from "../Algorithms/Insertionsort";
-import {getMergeSortSwap} from "../Algorithms/Mergesort";
-import {getQuickSortSwap} from "../Algorithms/Quicksort";
-import {getCocktailshakersortSwap} from "../Algorithms/Coktailshakersort";
+import {getInsertionSortSwap} from "../Algorithms/InsertionSort";
+import {getMergeSortSwap} from "../Algorithms/MergeSort";
+import {getQuickSortSwap} from "../Algorithms/QuickSort";
+import {getCocktailShakerSortSwap} from "../Algorithms/CoktailShakerSort";
 
 class Animation {
     setState;
@@ -66,7 +66,7 @@ class Animation {
             }
             case 4: {
                 if(this.swap.length === 0) {
-                    this.swap = getCocktailshakersortSwap(this.array.slice(0));
+                    this.swap = getCocktailShakerSortSwap(this.array.slice(0));
                 }
                 this.animate(this.cocktailshakerSortStep);
                 return true;

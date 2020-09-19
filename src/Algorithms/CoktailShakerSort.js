@@ -1,7 +1,7 @@
 let swap;
 let array;
 
-function cocktailshakerSort() {
+function cocktailShakerSort() {
     let leftSorted = 0;
     let rightSorted = array.length-1;
     while(leftSorted <= rightSorted) {
@@ -48,11 +48,11 @@ function cocktailshakerSort() {
     }
 }
 
-function getCocktailshakersortSwap(arr) {
+function getCocktailShakerSortSwap(arr) {
     swap = [];
     array = arr;
-    cocktailshakerSort();
+    cocktailShakerSort();
     return swap;
 }
 
-export { getCocktailshakersortSwap };
+export { getCocktailShakerSortSwap };
