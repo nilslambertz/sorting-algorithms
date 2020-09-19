@@ -23,7 +23,6 @@ function partition(l, r) {
     let j = r-1;
     while(i < j) {
         while(i < r && array[i] < x) {
-            let mid = Math.floor((r + l) / 2);
             let a = {
                 firstIndex: i,
                 secondIndex: j,
@@ -33,7 +32,6 @@ function partition(l, r) {
             i++;
         }
         while(j > l && array[j] >= x) {
-            let mid = Math.floor((r + l) / 2);
             let a = {
                 firstIndex: i,
                 secondIndex: j,
@@ -43,19 +41,9 @@ function partition(l, r) {
             j--;
         }
         if(i < j) {
-            /*let a = {
-                firstIndex: i,
-                secondIndex: j,
-                swapped: false,
-                leftBorder: l,
-                mid: mid,
-                rightBorder: r
-            }
-            swap.push(a);*/
             let temp = array[i];
             array[i] = array[j];
             array[j] = temp;
-            let mid = Math.floor((r + l) / 2);
             let a = {
                 firstIndex: i,
                 secondIndex: j,
@@ -68,7 +56,6 @@ function partition(l, r) {
         let temp = array[i];
         array[i] = array[r];
         array[r] = temp;
-        let mid = Math.floor((r + l) / 2);
         let a = {
             firstIndex: i,
             secondIndex: r,
