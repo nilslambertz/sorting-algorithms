@@ -37,11 +37,11 @@ class Animation {
                     this.swap = getBubbleSortSwap(this.array.slice(0));
                 }
                 this.animateBubbleSort();
-                break;
+                return true;
             }
             default: {
                 alert("error");
-                break;
+                return false;
             }
         }
     }
@@ -70,9 +70,9 @@ class Animation {
                 let temp = this.array[first];
                 this.array[first] = this.array[first+1];
                 this.array[first+1] = temp;
-                this.setState({array: this.array, firstIndex: first+1, secondIndex: first});
+                this.setState({array: this.array, firstIndex: first, secondIndex: first+1});
             } else {
-                this.setState({firstIndex: first, secondIndex: first+1});
+                this.setState({firstIndex: first+1, secondIndex: first});
             }
         }, this.speed);
     }
