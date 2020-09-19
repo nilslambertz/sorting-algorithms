@@ -29,10 +29,10 @@ class App extends React.Component {
     }
 
     changeSpeed = (e) => {
-        e = parseInt(e);
+        let newSpeed = parseFloat(e.target.value);
         if(this.state.animationRunning) return;
-        this.setState({animationSpeed: e.target.value});
-        animation.changeSpeed(e.target.value);
+        this.setState({animationSpeed: newSpeed});
+        animation.changeSpeed(newSpeed);
     }
 
     changeElemNumber = (event) => {
