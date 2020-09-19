@@ -20,7 +20,6 @@ function insertionSort() {
     }
 }
 
-
 function getInsertionSortSwap(arr) {
     swap = [];
     array = arr;
