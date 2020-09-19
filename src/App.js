@@ -40,45 +40,14 @@ class App extends React.Component {
     }
 
     animationClick = () => {
-       // animation.toggleAnimation();
-        /*startAnimation(this.setState, this.state.swap.slice(0), this.state.array.slice(0),
-            this.state.algorithm, this.state.animationSpeed, interval);*/
-        /*
-        if(arrayIsSorted(this.state.array.slice(0))) {
-            return;
+        if(this.state.animationRunning) {
+            animation.endAnimation();
+            this.setState({animationRunning: false});
+
+        } else {
+            this.setState({animationRunning: true});
+            animation.startAnimation();
         }
-
-        let newState = !this.state.animationRunning;
-        this.setState({animationRunning: newState}, () => {
-            if(newState === true) {
-                this.startAnimation();
-            } else {
-                this.endAnimation(false);
-            }
-        });*/
-    }
-
-    startAnimation = () => {
-
-        /*let arr = this.state.array.slice(0);
-        let swap = this.state.swap.slice(0);
-        let algo = this.state.algorithm;
-
-        switch (algo) {
-            case 0: {
-                if(swap.length === 0) {
-                    swap = doBubbleSort(arr);
-                }
-                this.setState({swap}, () => {
-                    //this.renderBubbleSort(swap);
-                });
-                break;
-            }
-            default: {
-                alert("error");
-                break;
-            }
-        }*/
     }
 
     newArrayClick = () => {
@@ -86,39 +55,9 @@ class App extends React.Component {
         this.createArray();
     }
 
-    /*
-    endAnimation = (finished) => {
-        clearInterval(interval);
-        this.setState({animationRunning: false});
-        if(finished) {
-            this.setState({firstIndex: null, secondIndex: null});
-            if(arrayIsSorted(this.state.array.slice(0))) {
-                this.setState({sorted: true});
-            }
-        }
-    }*/
-
-   /* renderBubbleSort = (swap) => {
-        let speed = 505 - this.state.animationSpeed;
-        interval = setInterval(() => {
-            if(swap.length === 0) {
-                this.endAnimation(true);
-                return;
-            }
-            let x = swap.shift();
-            let first = x.firstIndex;
-
-            if(x.elementsSwapped === true) {
-                let array = [...this.state.array];
-                let temp = array[first];
-                array[first] = array[first+1];
-                array[first+1] = temp;
-                this.setState({array, firstIndex: first+1, secondIndex: first});
-            } else {
-                this.setState({firstIndex: first, secondIndex: first+1});
-            }
-        }, speed);
-    }*/
+    changeState = (e) => {
+        this.setState(e);
+    }
 
     createArray = () => {
         let array = createNewArray(this.state.numberOfElements, this.state.maxElems);
@@ -130,7 +69,7 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        animation = new Animation(this.setState);
+        animation = new Animation(this.changeState);
         this.createArray();
     }
 

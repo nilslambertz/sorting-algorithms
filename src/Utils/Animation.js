@@ -1,4 +1,4 @@
-import { getBubbleSortSwap, animateBubbleSort } from "../Algorithms/Bubblesort";
+import { getBubbleSortSwap } from "../Algorithms/Bubblesort";
 import { arrayIsSorted } from "./Functions";
 
 class Animation {
@@ -30,35 +30,51 @@ class Animation {
         this.speed = 505 - speed;
     }
 
-}
-
-function startAnimation(setState, swap, array, algorithm, speed, interval) {
-    speed = 505 - speed;
-    switch (algorithm) {
-        case 0: {
-            if(swap.length === 0) {
-                swap = getBubbleSortSwap(array);
+    startAnimation() {
+        switch (this.algorithm) {
+            case 0: {
+                if(this.swap.length === 0) {
+                    this.swap = getBubbleSortSwap(this.array.slice(0));
+                }
+                this.animateBubbleSort();
+                break;
             }
-            setState({swap}, () => {
-                animateBubbleSort(setState, array, swap, speed, interval);
-            });
-            break;
-        }
-        default: {
-            alert("error");
-            break;
+            default: {
+                alert("error");
+                break;
+            }
         }
     }
-}
 
-function endAnimation(finished) {
-   // clearInterval(interval);
-    this.setState({animationRunning: false});
-    if(finished) {
-        this.setState({firstIndex: null, secondIndex: null});
-        if(arrayIsSorted(this.state.array.slice(0))) {
-            this.setState({sorted: true});
+    endAnimation(finished) {
+        clearInterval(this.interval);
+        this.setState({animationRunning: false});
+        if(finished) {
+            this.setState({firstIndex: null, secondIndex: null});
+            if(arrayIsSorted(this.array)) {
+                this.setState({sorted: true});
+            }
         }
+    }
+
+    animateBubbleSort() {
+        this.interval = setInterval(() => {
+            if(this.swap.length === 0) {
+                this.endAnimation(true);
+                return;
+            }
+            let x = this.swap.shift();
+            let first = x.firstIndex;
+
+            if(x.elementsSwapped === true) {
+                let temp = this.array[first];
+                this.array[first] = this.array[first+1];
+                this.array[first+1] = temp;
+                this.setState({array: this.array, firstIndex: first+1, secondIndex: first});
+            } else {
+                this.setState({firstIndex: first, secondIndex: first+1});
+            }
+        }, this.speed);
     }
 }
 

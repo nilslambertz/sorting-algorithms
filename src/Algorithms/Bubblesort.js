@@ -1,5 +1,3 @@
-//import { endAnimation } from "../Utils/Animation";
-
 let swap = [];
 let array = [];
 
@@ -32,25 +30,4 @@ function getBubbleSortSwap(arr) {
     return swap;
 }
 
-function animateBubbleSort(array, swap, speed, interval) {
-    interval = setInterval(() => {
-        if(swap.length === 0) {
-         //   endAnimation(true);
-            return;
-        }
-        let x = swap.shift();
-        let first = x.firstIndex;
-
-        if(x.elementsSwapped === true) {
-            let array = [...this.state.array];
-            let temp = array[first];
-            array[first] = array[first+1];
-            array[first+1] = temp;
-            this.setState({array, firstIndex: first+1, secondIndex: first});
-        } else {
-            this.setState({firstIndex: first, secondIndex: first+1});
-        }
-    }, speed);
-}
-
-export { getBubbleSortSwap, animateBubbleSort };
+export { getBubbleSortSwap };
