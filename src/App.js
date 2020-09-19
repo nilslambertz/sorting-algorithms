@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import NavBar from "./Components/Navigation/NavBar";
 import Main from "./Components/Main/Main";
-import { createNewArray } from "./Utils/Functions";
+import {arrayIsSorted, createNewArray} from "./Utils/Functions";
 import Animation from "./Utils/Animation";
 
 let animation;
@@ -18,6 +18,9 @@ class App extends React.Component {
         array: [],
         firstIndex: null,
         secondIndex: null,
+        leftBorder: null,
+        rightBorder: null,
+        mid: null,
         sorted: false
     }
 
@@ -70,9 +73,7 @@ class App extends React.Component {
         let array = createNewArray(this.state.numberOfElements, this.state.maxElems);
         animation.changeArray(array);
         this.setState({array});
-        this.setState({firstIndex: null});
-        this.setState({secondIndex: null});
-        this.setState({sorted: false});
+        this.setState({sorted: arrayIsSorted(array), firstIndex: null, secondIndex: null, leftBorder: null, rightBorder: null, mid: null});
     }
 
     componentDidMount(){
@@ -118,6 +119,9 @@ class App extends React.Component {
                       animationSpeed={this.state.animationSpeed}
                       firstIndex={this.state.firstIndex}
                       secondIndex={this.state.secondIndex}
+                      leftBorder={this.state.leftBorder}
+                      rightBorder={this.state.rightBorder}
+                      mid={this.state.mid}
                       sorted={this.state.sorted}
                 />
             </div>
