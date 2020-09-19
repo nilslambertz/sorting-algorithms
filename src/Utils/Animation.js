@@ -2,6 +2,7 @@ import { getBubbleSortSwap } from "../Algorithms/Bubblesort";
 import { arrayIsSorted } from "./Functions";
 import {getInsertionSortSwap} from "../Algorithms/Insertionsort";
 import {getMergeSortSwap} from "../Algorithms/Mergesort";
+import {getQuickSortSwap} from "../Algorithms/Quicksort";
 
 class Animation {
     setState;
@@ -53,6 +54,13 @@ class Animation {
                     this.swap = getMergeSortSwap(this.array.slice(0));
                 }
                 this.animate(this.mergeSortStep);
+                return true;
+            }
+            case 3: {
+                if(this.swap.length === 0) {
+                    this.swap = getQuickSortSwap(this.array.slice(0));
+                }
+                this.animate(this.quickSortStep);
                 return true;
             }
             default: {
@@ -146,6 +154,35 @@ class Animation {
                     this.array[j-1] = temp;
                 }
                 this.setState({array: this.array, leftBorder: leftBorder, rightBorder: rightBorder, mid: mid, firstIndex: firstIndex, secondIndex: secondIndex});
+            }
+        }
+    }
+
+    quickSortStep = () => {
+        let x = this.swap.shift();
+        if(x.newBorders === true) {
+            this.setState({
+                leftBorder: x.leftBorder,
+                rightBorder: x.rightBorder,
+                mid: x.mid
+            })
+        } else {
+            let firstIndex = x.firstIndex;
+            let secondIndex = x.secondIndex;
+            if (x.swapped === false) {
+                this.setState({
+                    firstIndex: firstIndex,
+                    secondIndex: secondIndex
+                });
+            } else {
+                let temp = this.array[firstIndex];
+                this.array[firstIndex] = this.array[secondIndex];
+                this.array[secondIndex] = temp;
+                this.setState({
+                    array: this.array,
+                    firstIndex: secondIndex,
+                    secondIndex: firstIndex
+                });
             }
         }
     }
