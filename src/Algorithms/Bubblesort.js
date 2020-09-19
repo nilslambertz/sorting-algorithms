@@ -1,5 +1,5 @@
-let swap = [];
-let array = [];
+let swap;
+let array;
 
 function bubbleSort() {
     for (let n = array.length; n > 1; n--) {
