@@ -7,23 +7,35 @@
 }
 
 #settingsDiv {
-  padding: 10px;
+  padding: 5px;
   border-bottom: 1px solid rgba(255,255,255,0.3);
+  width: 100%;
   user-select: none;
   color: white;
   text-align: center;
 }
 
 #settingsDiv table {
-  display: inline-block;
-  border-collapse: collapse;
-}
-
-#settingsDiv td {
-  padding: 0 30px;
+  height: 50px;
   border-right: 1px solid rgba(255,255,255,0.1);
   border-left: 1px solid rgba(255,255,255,0.1);
+  margin-left: -1px;
+  padding: 0 30px;
+  display: inline-block;
   transition: opacity 0.3s;
+}
+
+#settingsDiv table:first-child {
+  margin-left: 0;
+}
+
+#settingsDiv table tbody {
+  padding: 0;
+  margin: 0;
+}
+
+#settingsDiv table tbody tr:only-child {
+  height: 46px;
 }
 
 .settingsButton {

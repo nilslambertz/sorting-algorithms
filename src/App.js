@@ -87,30 +87,50 @@ class App extends React.Component {
             <div className="App">
                 <NavBar algorithm={this.state.algorithm} animationRunning={this.state.animationRunning} setAlgorithm={this.setAlgorithm}/>
                 <div id="settingsDiv">
+                    <table className={(this.state.animationRunning ? "disabled" : "")}>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="range" min={this.state.minElems} max={this.state.maxElems} value={this.state.numberOfElements} onChange={this.changeElemNumber}/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {this.state.numberOfElements} elements
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <table>
                         <tbody>
                             <tr>
-                                <td className={(this.state.animationRunning ? "disabled" : "")}>
-                                    <input type="range" min={this.state.minElems} max={this.state.maxElems} value={this.state.numberOfElements} onChange={this.changeElemNumber}/>
-                                </td>
-                                <td className={"settingsButton" + (this.state.sorted ? " disabledSetting" : "")} rowSpan="2" style={this.state.animationRunning ? stopStyle : playStyle} onClick={this.animationClick}>
+                                <td className={"settingsButton"} rowSpan="2" style={this.state.animationRunning ? stopStyle : playStyle} onClick={this.animationClick}>
                                     {this.state.animationRunning ? "stop" : "start"}
                                 </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table className={(this.state.animationRunning ? "disabled" : "")}>
+                        <tbody>
+                            <tr>
                                 <td className={"settingsButton" + (this.state.animationRunning ? " disabled" : "")} rowSpan="2" style={newArrayStyle} onClick={this.newArrayClick}>
                                     new array
                                 </td>
-                                <td className={(this.state.animationRunning ? "disabled" : "")}>
-                                    <input type="range" min="10" max="500" value={this.state.animationSpeed} onChange={this.changeSpeed}/>
-                                </td>
                             </tr>
-                            <tr>
-                                <td className={(this.state.animationRunning ? "disabled" : "")}>
-                                    {this.state.numberOfElements} elements
-                                </td>
-                                <td className={(this.state.animationRunning ? "disabled" : "")}>
-                                    animation speed
-                                </td>
-                            </tr>
+                        </tbody>
+                    </table>
+                    <table className={(this.state.animationRunning ? "disabled" : "")}>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="range" min="10" max="500" value={this.state.animationSpeed} onChange={this.changeSpeed}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                animation speed
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
