@@ -37,7 +37,10 @@
   text-shadow: 4px 4px 6px black;
 }
 
-.disabled {
-  opacity: 0.1;
+.disabledSetting {
   cursor: default;
+}
+
+.disabledSetting:hover {
+  text-shadow: 3px 3px 4px black;
 }

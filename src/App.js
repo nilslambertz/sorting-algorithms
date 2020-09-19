@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import NavBar from "./Components/Navigation/NavBar";
 import Main from "./Components/Main/Main";
-import { doBubbleSort } from "./Algorithms/Bubblesort";
-import { arrayIsSorted } from "./Utils/Functions";
+import { createNewArray } from "./Utils/Functions";
+import Animation from "./Utils/Animation";
 
-let interval;
+let animation;
 
 class App extends React.Component {
     state = {
@@ -16,27 +16,34 @@ class App extends React.Component {
         animationSpeed: 500,
         animationRunning: false,
         array: [],
-        swap: []
+        firstIndex: null,
+        secondIndex: null,
+        sorted: false
     }
 
     setAlgorithm = (nr) => {
-        this.setState({
-            algorithm: nr
-        });
+        this.setState({algorithm: nr});
+        animation.changeAlgorithm(nr);
     }
 
     changeSpeed = (e) => {
         if(this.state.animationRunning) return;
         this.setState({animationSpeed: e.target.value});
+        animation.changeSpeed(e.target.value);
     }
 
     changeElemNumber = (event) => {
         if(this.state.animationRunning) return;
-        this.setState({numberOfElements: event.target.value});
-        this.createNewArray(event.target.value);
+        this.setState({numberOfElements: event.target.value}, () => {
+            this.createArray();
+        });
     }
 
     animationClick = () => {
+       // animation.toggleAnimation();
+        /*startAnimation(this.setState, this.state.swap.slice(0), this.state.array.slice(0),
+            this.state.algorithm, this.state.animationSpeed, interval);*/
+        /*
         if(arrayIsSorted(this.state.array.slice(0))) {
             return;
         }
@@ -46,13 +53,14 @@ class App extends React.Component {
             if(newState === true) {
                 this.startAnimation();
             } else {
-                clearInterval(interval);
+                this.endAnimation(false);
             }
-        });
+        });*/
     }
 
     startAnimation = () => {
-        let arr = this.state.array.slice(0);
+
+        /*let arr = this.state.array.slice(0);
         let swap = this.state.swap.slice(0);
         let algo = this.state.algorithm;
 
@@ -62,7 +70,7 @@ class App extends React.Component {
                     swap = doBubbleSort(arr);
                 }
                 this.setState({swap}, () => {
-                    this.renderBubbleSort(swap);
+                    //this.renderBubbleSort(swap);
                 });
                 break;
             }
@@ -70,47 +78,60 @@ class App extends React.Component {
                 alert("error");
                 break;
             }
-        }
+        }*/
     }
 
     newArrayClick = () => {
         if (this.state.animationRunning) return;
-        this.createNewArray(this.state.numberOfElements);
+        this.createArray();
     }
 
-    createNewArray = (elems) => {
-        let max = this.state.maxElems;
-        let allValues = [...Array(max).keys()];
-        let array = [];
-        for(let i = 0; i < elems; i++) {
-            array[i] = allValues.splice(Math.floor(Math.random() * allValues.length), 1)[0] + 10;
+    /*
+    endAnimation = (finished) => {
+        clearInterval(interval);
+        this.setState({animationRunning: false});
+        if(finished) {
+            this.setState({firstIndex: null, secondIndex: null});
+            if(arrayIsSorted(this.state.array.slice(0))) {
+                this.setState({sorted: true});
+            }
         }
-        this.setState({array});
-    }
+    }*/
 
-    renderBubbleSort = (swap) => {
-        let speed = 510 - this.state.animationSpeed;
+   /* renderBubbleSort = (swap) => {
+        let speed = 505 - this.state.animationSpeed;
         interval = setInterval(() => {
             if(swap.length === 0) {
-                clearInterval(interval);
-                this.setState({animationRunning: false});
+                this.endAnimation(true);
                 return;
             }
             let x = swap.shift();
             let first = x.firstIndex;
 
-            if(x.swapElements === true) {
+            if(x.elementsSwapped === true) {
                 let array = [...this.state.array];
                 let temp = array[first];
                 array[first] = array[first+1];
                 array[first+1] = temp;
-                this.setState({array});
+                this.setState({array, firstIndex: first+1, secondIndex: first});
+            } else {
+                this.setState({firstIndex: first, secondIndex: first+1});
             }
         }, speed);
+    }*/
+
+    createArray = () => {
+        let array = createNewArray(this.state.numberOfElements, this.state.maxElems);
+        animation.changeArray(array);
+        this.setState({array});
+        this.setState({firstIndex: null});
+        this.setState({secondIndex: null});
+        this.setState({sorted: false});
     }
 
     componentDidMount(){
-        this.createNewArray(100);
+        animation = new Animation(this.setState);
+        this.createArray();
     }
 
     render() {
@@ -124,7 +145,7 @@ class App extends React.Component {
                                 <td className={(this.state.animationRunning ? "disabled" : "")}>
                                     <input type="range" min={this.state.minElems} max={this.state.maxElems} value={this.state.numberOfElements} onChange={this.changeElemNumber}/>
                                 </td>
-                                <td className="settingsButton" rowSpan="2" style={this.state.animationRunning ? stopStyle : playStyle} onClick={this.animationClick}>
+                                <td className={"settingsButton" + (this.state.sorted ? " disabledSetting" : "")} rowSpan="2" style={this.state.animationRunning ? stopStyle : playStyle} onClick={this.animationClick}>
                                     {this.state.animationRunning ? "stop" : "start"}
                                 </td>
                                 <td className={"settingsButton" + (this.state.animationRunning ? " disabled" : "")} rowSpan="2" style={newArrayStyle} onClick={this.newArrayClick}>
@@ -145,7 +166,14 @@ class App extends React.Component {
                         </tbody>
                     </table>
                 </div>
-                <Main array={this.state.array} algorithm={this.state.algorithm} numberOfElements={this.state.numberOfElements} animationSpeed={this.state.animationSpeed}/>
+                <Main array={this.state.array}
+                      algorithm={this.state.algorithm}
+                      numberOfElements={this.state.numberOfElements}
+                      animationSpeed={this.state.animationSpeed}
+                      firstIndex={this.state.firstIndex}
+                      secondIndex={this.state.secondIndex}
+                      sorted={this.state.sorted}
+                />
             </div>
         )
     }
