@@ -4,6 +4,7 @@ import NavBar from "./Components/Navigation/NavBar";
 import Main from "./Components/Main/Main";
 import {arrayIsSorted, createNewArray} from "./Utils/Functions";
 import Animation from "./Utils/Animation";
+import SettingsBar from "./Components/Settings/SettingsBar";
 
 let animation;
 
@@ -86,54 +87,19 @@ class App extends React.Component {
         return (
             <div className="App">
                 <NavBar algorithm={this.state.algorithm} animationRunning={this.state.animationRunning} setAlgorithm={this.setAlgorithm}/>
-                <div id="settingsDiv">
-                    <table className={(this.state.animationRunning ? "disabled" : "")}>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <input type="range" min={this.state.minElems} max={this.state.maxElems} value={this.state.numberOfElements} onChange={this.changeElemNumber}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    {this.state.numberOfElements} elements
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td className={"settingsButton" + (this.state.sorted ? " disabledSetting" : "")} rowSpan="2" style={this.state.animationRunning ? stopStyle : playStyle} onClick={this.animationClick}>
-                                    {this.state.animationRunning ? "stop" : "start"}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table className={(this.state.animationRunning ? "disabled" : "")}>
-                        <tbody>
-                            <tr>
-                                <td className="settingsButton" rowSpan="2" style={newArrayStyle} onClick={this.newArrayClick}>
-                                    new array
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table className={(this.state.animationRunning ? "disabled" : "")}>
-                        <tbody>
-                        <tr>
-                            <td>
-                                <input type="range" min="10" max="500" value={this.state.animationSpeed} onChange={this.changeSpeed}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                animation speed
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <SettingsBar
+                    setState={this.changeState}
+                    minElems={this.state.minElems}
+                    maxElems={this.state.maxElems}
+                    numberOfElements={this.state.numberOfElements}
+                    sorted={this.state.sorted}
+                    animationRunning={this.state.animationRunning}
+                    animationSpeed={this.state.animationSpeed}
+                    changeElemNumber={this.changeElemNumber}
+                    newArrayClick={this.newArrayClick}
+                    animationClick={this.animationClick}
+                    changeSpeed={this.changeSpeed}
+                />
                 <Main array={this.state.array}
                       algorithm={this.state.algorithm}
                       numberOfElements={this.state.numberOfElements}
@@ -148,17 +114,6 @@ class App extends React.Component {
             </div>
         )
     }
-}
-
-const playStyle = {
-    color: "lightgreen"
-}
-const stopStyle = {
-    color: "orange"
-}
-
-const newArrayStyle = {
-    color: "lightblue"
 }
 
 export default App;
