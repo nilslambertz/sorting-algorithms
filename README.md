@@ -8,3 +8,5 @@ cocktailshakersort
 insertionsort  
 mergesort  
 quicksort  
+shellsort  
+
