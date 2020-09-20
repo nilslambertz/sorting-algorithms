@@ -87,7 +87,6 @@ class App extends React.Component {
             <div className="App">
                 <NavBar algorithm={this.state.algorithm} animationRunning={this.state.animationRunning} setAlgorithm={this.setAlgorithm}/>
                 <SettingsBar
-                    setState={this.changeState}
                     maxElems={this.state.maxElems}
                     numberOfElements={this.state.numberOfElements}
                     sorted={this.state.sorted}

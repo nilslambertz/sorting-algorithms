@@ -18,7 +18,7 @@ function SettingsBar({maxElems, numberOfElements, sorted, animationRunning, anim
     return (
         <div id="settingsBar">
             <div id="settingsDiv">
-                <table className={(animationRunning ? "disabled" : "")}>
+                <table className={(animationRunning ? "disabledSetting" : "")}>
                     <tbody>
                     <tr>
                         <td>
@@ -35,13 +35,13 @@ function SettingsBar({maxElems, numberOfElements, sorted, animationRunning, anim
                 <table>
                     <tbody>
                     <tr>
-                        <td className={"settingsButton" + (sorted ? " disabledSetting" : "")} rowSpan="2" style={animationRunning ? stopStyle : playStyle} onClick={animationClick}>
+                        <td className={"settingsButton" + (sorted ? " noClickSetting" : "")} rowSpan="2" style={animationRunning ? stopStyle : playStyle} onClick={animationClick}>
                             {animationRunning ? "stop" : "start"}
                         </td>
                     </tr>
                     </tbody>
                 </table>
-                <table className={(animationRunning ? "disabled" : "")}>
+                <table className={(animationRunning ? "disabledSetting" : "")}>
                     <tbody>
                     <tr>
                         <td className="settingsButton" rowSpan="2" style={newArrayStyle} onClick={newArrayClick}>
@@ -50,7 +50,7 @@ function SettingsBar({maxElems, numberOfElements, sorted, animationRunning, anim
                     </tr>
                     </tbody>
                 </table>
-                <table className={(animationRunning ? "disabled" : "")}>
+                <table className={(animationRunning ? "disabledSetting" : "")}>
                     <tbody>
                     <tr>
                         <td>
