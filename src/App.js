@@ -113,7 +113,7 @@ class App extends React.Component {
                     <table className={(this.state.animationRunning ? "disabled" : "")}>
                         <tbody>
                             <tr>
-                                <td className={"settingsButton" + (this.state.animationRunning ? " disabled" : "")} rowSpan="2" style={newArrayStyle} onClick={this.newArrayClick}>
+                                <td className="settingsButton" rowSpan="2" style={newArrayStyle} onClick={this.newArrayClick}>
                                     new array
                                 </td>
                             </tr>
