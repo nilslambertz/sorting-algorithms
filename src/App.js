@@ -11,7 +11,6 @@ let animation;
 class App extends React.Component {
     state = {
         algorithm: 0,
-        minElems: 5,
         maxElems: 600,
         numberOfElements: 100,
         animationSpeed: 500,
@@ -89,7 +88,6 @@ class App extends React.Component {
                 <NavBar algorithm={this.state.algorithm} animationRunning={this.state.animationRunning} setAlgorithm={this.setAlgorithm}/>
                 <SettingsBar
                     setState={this.changeState}
-                    minElems={this.state.minElems}
                     maxElems={this.state.maxElems}
                     numberOfElements={this.state.numberOfElements}
                     sorted={this.state.sorted}

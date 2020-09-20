@@ -1,7 +1,9 @@
 import React from 'react';
 import './SettingsBar.css';
 
-function SettingsBar({setState, minElems, maxElems, numberOfElements, sorted, animationRunning, animationSpeed, changeElemNumber, newArrayClick, animationClick, changeSpeed}) {
+function SettingsBar({maxElems, numberOfElements, sorted, animationRunning, animationSpeed, changeElemNumber, newArrayClick, animationClick, changeSpeed}) {
+    const minElems = 5;
+
     const playStyle = {
         color: "lightgreen"
     }
