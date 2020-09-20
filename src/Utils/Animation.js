@@ -5,6 +5,7 @@ import {getMergeSortSwap} from "../Algorithms/MergeSort";
 import {getQuickSortSwap} from "../Algorithms/QuickSort";
 import {getCocktailShakerSortSwap} from "../Algorithms/CoktailShakerSort";
 import {getShellSortswap} from "../Algorithms/ShellSort";
+import {swap} from "./Functions";
 
 class Animation {
     setState;
@@ -109,15 +110,13 @@ class Animation {
 
     bubbleSortStep = () => {
         let x = this.swap.shift();
-        let first = x.firstIndex;
+        let firstIndex = x.firstIndex;
 
         if(x.elementsSwapped === true) {
-            let temp = this.array[first];
-            this.array[first] = this.array[first+1];
-            this.array[first+1] = temp;
-            this.setState({array: this.array, firstIndex: first, secondIndex: first+1});
+            swap(this.array, firstIndex, firstIndex+1);
+            this.setState({array: this.array, firstIndex: firstIndex, secondIndex: firstIndex+1});
         } else {
-            this.setState({firstIndex: first+1, secondIndex: first});
+            this.setState({firstIndex: firstIndex+1, secondIndex: firstIndex});
         }
     }
 
@@ -126,9 +125,7 @@ class Animation {
         let firstIndex = x.firstIndex;
 
         if(x.swapped === true) {
-            let temp = this.array[firstIndex];
-            this.array[firstIndex] = this.array[firstIndex+1];
-            this.array[firstIndex+1] = temp;
+            swap(this.array, firstIndex, firstIndex+1);
             this.setState({array: this.array, firstIndex: firstIndex, secondIndex: firstIndex+1});
         } else {
             this.setState({array: this.array, firstIndex: firstIndex+1, secondIndex: firstIndex});
@@ -159,9 +156,7 @@ class Animation {
                 let firstIndex = x.firstIndex;
                 let secondIndex = x.secondIndex;
                 if(x.swapped === true) {
-                    let temp = this.array[firstIndex];
-                    this.array[firstIndex] = this.array[secondIndex];
-                    this.array[secondIndex] = temp;
+                    swap(this.array, firstIndex, secondIndex);
                     this.setState({array: this.array, firstIndex: secondIndex, secondIndex: firstIndex});
                 } else {
                     this.setState({array: this.array, firstIndex: firstIndex, secondIndex: secondIndex});
@@ -179,9 +174,7 @@ class Animation {
                 this.setState({leftBorder: leftBorder, rightBorder: rightBorder, mid: mid, firstIndex: firstIndex, secondIndex: secondIndex});
             } else {
                 for(let j = secondIndex; j > firstIndex; j--) {
-                    let temp = this.array[j];
-                    this.array[j] = this.array[j-1];
-                    this.array[j-1] = temp;
+                    swap(this.array, j, j-1);
                 }
                 this.setState({array: this.array, leftBorder: leftBorder, rightBorder: rightBorder, mid: mid, firstIndex: firstIndex, secondIndex: secondIndex});
             }
@@ -223,9 +216,7 @@ class Animation {
                     secondIndex: secondIndex
                 });
             } else {
-                let temp = this.array[firstIndex];
-                this.array[firstIndex] = this.array[secondIndex];
-                this.array[secondIndex] = temp;
+                swap(this.array, firstIndex, secondIndex);
                 this.setState({
                     array: this.array,
                     firstIndex: secondIndex,
