@@ -17,8 +17,8 @@ class Main extends React.Component {
     printArray() {
         let arr = this.props.array;
         let len = arr.length;
-        let width = Math.round(1000 / len);
-        let margin = Math.floor((600 - len) / 300);
+        let width = 70 / len + "%";
+        let margin = Math.floor((600 - len) / 400);
         let first = this.props.firstIndex;
         let second = this.props.secondIndex;
         let leftBorder = this.props.leftBorder;
@@ -28,7 +28,7 @@ class Main extends React.Component {
 
         let elemStyle = {
             width: width,
-            marginLeft: margin + "px"
+            marginLeft: margin
         }
 
         return this.props.array.map(function(c,i,a) {
