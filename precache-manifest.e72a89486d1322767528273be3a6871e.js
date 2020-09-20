@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "77d9ef345e824b5c4ddd4a1adead9f0c",
+    "revision": "aa975a2bb9c3979e0e841af28ed529ca",
     "url": "/ArraySortReact/index.html"
   },
   {
-    "revision": "0010c7d2b9eaccbcec5d",
+    "revision": "04da9e7f37363f5c08bf",
     "url": "/ArraySortReact/static/css/main.fdf511c4.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ArraySortReact/static/js/2.372a8c7a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0010c7d2b9eaccbcec5d",
-    "url": "/ArraySortReact/static/js/main.971b0cff.chunk.js"
+    "revision": "04da9e7f37363f5c08bf",
+    "url": "/ArraySortReact/static/js/main.38efb9ec.chunk.js"
   },
   {
     "revision": "105b4d51301aab2fdccb",
