@@ -9,6 +9,7 @@ class Main extends React.Component {
         return (
             <div id="mainDiv" className={className}>
                 {this.printArray()}
+                <div id="footer">by <a href="http://www.nilslambertz.de" target="_blank" rel="noopener noreferrer">nils lambertz</a></div>
             </div>
         )
     }
