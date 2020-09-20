@@ -104,7 +104,7 @@ class App extends React.Component {
                     <table>
                         <tbody>
                             <tr>
-                                <td className={"settingsButton"} rowSpan="2" style={this.state.animationRunning ? stopStyle : playStyle} onClick={this.animationClick}>
+                                <td className={"settingsButton" + (this.state.sorted ? " disabledSetting" : "")} rowSpan="2" style={this.state.animationRunning ? stopStyle : playStyle} onClick={this.animationClick}>
                                     {this.state.animationRunning ? "stop" : "start"}
                                 </td>
                             </tr>
