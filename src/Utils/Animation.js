@@ -4,6 +4,7 @@ import {getInsertionSortSwap} from "../Algorithms/InsertionSort";
 import {getMergeSortSwap} from "../Algorithms/MergeSort";
 import {getQuickSortSwap} from "../Algorithms/QuickSort";
 import {getCocktailShakerSortSwap} from "../Algorithms/CoktailShakerSort";
+import {getShellSortswap} from "../Algorithms/ShellSort";
 
 class Animation {
     setState;
@@ -69,6 +70,13 @@ class Animation {
                     this.swap = getCocktailShakerSortSwap(this.array.slice(0));
                 }
                 this.animate(this.cocktailshakerSortStep);
+                return true;
+            }
+            case 5: {
+                if(this.swap.length === 0) {
+                    this.swap = getShellSortswap(this.array.slice(0));
+                }
+                this.animate(this.shellSortStep);
                 return true;
             }
             default: {
@@ -177,6 +185,24 @@ class Animation {
                 }
                 this.setState({array: this.array, leftBorder: leftBorder, rightBorder: rightBorder, mid: mid, firstIndex: firstIndex, secondIndex: secondIndex});
             }
+        }
+    }
+
+    shellSortStep = () => {
+        let x = this.swap.shift();
+        let firstIndex = x.firstIndex;
+        let secondIndex = x.secondIndex;
+        if(x.swapped === true) {
+            let gap = x.gap;
+            let temp = this.array[firstIndex];
+            let j;
+            for(j = firstIndex; j > secondIndex; j = j - gap) {
+                this.array[j] = this.array[j - gap];
+            }
+            this.array[j] = temp;
+            this.setState({firstIndex: secondIndex, secondIndex: firstIndex});
+        } else {
+            this.setState({firstIndex: firstIndex, secondIndex: secondIndex});
         }
     }
 
