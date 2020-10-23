@@ -32,7 +32,7 @@ function SettingsBar({maxElems, numberOfElements, sorted, animationRunning, anim
                     </tr>
                     </tbody>
                 </table>
-                <table>
+                <table id="startStopButton">
                     <tbody>
                     <tr>
                         <td className={"settingsButton" + (sorted ? " noClickSetting" : "")} rowSpan="2" style={animationRunning ? stopStyle : playStyle} onClick={animationClick}>
