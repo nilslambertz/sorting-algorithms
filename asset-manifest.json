@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ArraySortReact/static/css/main.d16de9a1.chunk.css",
+    "main.css": "/ArraySortReact/static/css/main.cd8d1ee4.chunk.css",
     "main.js": "/ArraySortReact/static/js/main.34fa5b12.chunk.js",
     "main.js.map": "/ArraySortReact/static/js/main.34fa5b12.chunk.js.map",
     "runtime-main.js": "/ArraySortReact/static/js/runtime-main.77917218.js",
@@ -8,16 +8,16 @@
     "static/js/2.372a8c7a.chunk.js": "/ArraySortReact/static/js/2.372a8c7a.chunk.js",
     "static/js/2.372a8c7a.chunk.js.map": "/ArraySortReact/static/js/2.372a8c7a.chunk.js.map",
     "index.html": "/ArraySortReact/index.html",
-    "precache-manifest.ffd813a1e0aeb493c538f2ea7964a71d.js": "/ArraySortReact/precache-manifest.ffd813a1e0aeb493c538f2ea7964a71d.js",
+    "precache-manifest.761c390a6031196e78dea99def292e31.js": "/ArraySortReact/precache-manifest.761c390a6031196e78dea99def292e31.js",
     "service-worker.js": "/ArraySortReact/service-worker.js",
-    "static/css/main.d16de9a1.chunk.css.map": "/ArraySortReact/static/css/main.d16de9a1.chunk.css.map",
+    "static/css/main.cd8d1ee4.chunk.css.map": "/ArraySortReact/static/css/main.cd8d1ee4.chunk.css.map",
     "static/js/2.372a8c7a.chunk.js.LICENSE.txt": "/ArraySortReact/static/js/2.372a8c7a.chunk.js.LICENSE.txt",
     "static/media/index.css": "/ArraySortReact/static/media/backgroundGray.2386eced.png"
   },
   "entrypoints": [
     "static/js/runtime-main.77917218.js",
     "static/js/2.372a8c7a.chunk.js",
-    "static/css/main.d16de9a1.chunk.css",
+    "static/css/main.cd8d1ee4.chunk.css",
     "static/js/main.34fa5b12.chunk.js"
   ]
 }
