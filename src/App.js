@@ -8,6 +8,13 @@ import SettingsBar from "./Components/Settings/SettingsBar";
 
 let animation;
 
+const playStyle = {
+    color: "lightgreen"
+}
+const stopStyle = {
+    color: "orange"
+}
+
 class App extends React.Component {
     state = {
         algorithm: 0,
@@ -21,6 +28,8 @@ class App extends React.Component {
         leftBorder: null,
         rightBorder: null,
         mid: null,
+        settingsMenuOpen: false,
+        algorithmsMenuOpen: false,
         sorted: false
     }
 
@@ -51,6 +60,11 @@ class App extends React.Component {
             animation.endAnimation();
             this.setState({animationRunning: false});
         } else if(this.state.sorted === false) {
+            document.getElementById("settingsBar").classList.remove("visible");
+            this.setState({settingsMenuOpen: false});
+            document.getElementById("navBar").classList.remove("visible");
+            this.setState({algorithmsMenuOpen: false});
+
             this.setState({animationRunning: true}, () =>
             {
                 let success = animation.startAnimation();
@@ -82,9 +96,51 @@ class App extends React.Component {
         this.createArray();
     }
 
+    toggleSettingsMenu = () => {
+        if(this.state.algorithmsMenuOpen) {
+            document.getElementById("navBar").classList.remove("visible");
+            this.setState({algorithmsMenuOpen: false});
+        }
+
+        let settingsMenuOpen = this.state.settingsMenuOpen;
+        if(settingsMenuOpen) {
+            document.getElementById("settingsBar").classList.remove("visible");
+        } else {
+            document.getElementById("settingsBar").classList.add("visible");
+        }
+        this.setState({settingsMenuOpen: !settingsMenuOpen});
+    }
+
+    toggleAlgorithmsMenu = () => {
+        if(this.state.settingsMenuOpen) {
+            document.getElementById("settingsBar").classList.remove("visible");
+            this.setState({settingsMenuOpen: false});
+        }
+
+        document.getElementById("settingsBar").classList.remove("visible");
+        let algorithmsMenuOpen = this.state.algorithmsMenuOpen;
+        if(algorithmsMenuOpen) {
+            document.getElementById("navBar").classList.remove("visible");
+        } else {
+            document.getElementById("navBar").classList.add("visible");
+        }
+        this.setState({algorithmsMenuOpen: !algorithmsMenuOpen});
+    }
+
     render() {
         return (
             <div className="App">
+                <div id="smallScreenNav">
+                    <div id="settingsIcon" className="smallScreenNavElem" onClick={this.toggleSettingsMenu}>
+                        <img src={require("./images/settingsIcon.png")} alt="Settings"/>
+                    </div>
+                    <div className={"settingsButton" + (this.state.sorted ? " noClickSetting" : "")} style={this.state.animationRunning ? stopStyle : playStyle} onClick={this.animationClick}>
+                        {this.state.animationRunning ? "stop" : "start"}
+                    </div>
+                    <div id="algorithmIcon" className="smallScreenNavElem" onClick={this.toggleAlgorithmsMenu}>
+                        <img src={require("./images/algorithmIcon.png")} alt="Algorithm"/>
+                    </div>
+                </div>
                 <NavBar algorithm={this.state.algorithm} animationRunning={this.state.animationRunning} setAlgorithm={this.setAlgorithm}/>
                 <SettingsBar
                     maxElems={this.state.maxElems}
