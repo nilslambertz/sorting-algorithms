@@ -18,7 +18,7 @@ class Main extends React.Component {
         let arr = this.props.array;
         let len = arr.length;
         let width = 70 / len + "%";
-        let margin = Math.floor((600 - len) / 400);
+        let margin = Math.floor((600 - len) / 350);
         let first = this.props.firstIndex;
         let second = this.props.secondIndex;
         let leftBorder = this.props.leftBorder;
