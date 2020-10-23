@@ -37,6 +37,10 @@
     overflow: hidden !important;
   }
 
+  #mainDiv {
+    padding: 0 0 50px 0 !important;
+  }
+
   #startStopButton {
     display: none !important;
   }
