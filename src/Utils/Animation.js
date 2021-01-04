@@ -17,6 +17,7 @@ class Animation {
     swapFunction;
     stepFunction;
     algorithms;
+    swaps;
 
     constructor(setState, algo) {
         this.algorithms =  {
@@ -53,16 +54,19 @@ class Animation {
         this.setState = setState;
         this.changeAlgorithm(algo);
         this.speed = 5;
-        this.swap = [];
     }
 
     changeAlgorithm(algo) {
         this.swapFunction = this.algorithms[algo].getSwap;
         this.stepFunction = this.algorithms[algo].step;
+        this.swaps = 0;
+        this.setState({swaps: 0});
         this.swap = [];
     }
 
     changeArray(array) {
+        this.swaps = 0;
+        this.setState({swaps: 0});
         this.array = array;
         this.swap = [];
     }
@@ -114,7 +118,8 @@ class Animation {
 
         if(x.elementsSwapped === true) {
             swap(this.array, firstIndex, firstIndex+1);
-            this.setState({array: this.array, firstIndex: firstIndex, secondIndex: firstIndex+1});
+            this.swaps++;
+            this.setState({array: this.array, firstIndex: firstIndex, secondIndex: firstIndex+1, swaps: this.swaps});
         } else {
             this.setState({firstIndex: firstIndex+1, secondIndex: firstIndex});
         }
@@ -127,7 +132,8 @@ class Animation {
 
         if(x.elementsSwapped === true) {
             swap(this.array, firstIndex, secondIndex);
-            this.setState({array: this.array, firstIndex: firstIndex, secondIndex: secondIndex});
+            this.swaps++;
+            this.setState({array: this.array, firstIndex: firstIndex, secondIndex: secondIndex, swaps: this.swaps});
         } else {
             this.setState({firstIndex: secondIndex, secondIndex: firstIndex});
         }
@@ -139,7 +145,8 @@ class Animation {
 
         if(x.swapped === true) {
             swap(this.array, firstIndex, firstIndex+1);
-            this.setState({array: this.array, firstIndex: firstIndex, secondIndex: firstIndex+1});
+            this.swaps++;
+            this.setState({array: this.array, firstIndex: firstIndex, secondIndex: firstIndex+1, swaps: this.swaps});
         } else {
             this.setState({array: this.array, firstIndex: firstIndex+1, secondIndex: firstIndex});
         }
@@ -154,9 +161,10 @@ class Animation {
             let temp = this.array[firstIndex];
             for(let j = firstIndex; j > correctPosition; j--) {
                 this.array[j] = this.array[j-1];
+                this.swaps++;
             }
             this.array[correctPosition] = temp;
-            this.setState({array: this.array, firstIndex: null, secondIndex: correctPosition});
+            this.setState({array: this.array, firstIndex: null, secondIndex: correctPosition, swaps: this.swaps});
         } else {
             this.setState({firstIndex: firstIndex, secondIndex: null});
         }
@@ -170,7 +178,8 @@ class Animation {
                 let secondIndex = x.secondIndex;
                 if(x.swapped === true) {
                     swap(this.array, firstIndex, secondIndex);
-                    this.setState({array: this.array, firstIndex: secondIndex, secondIndex: firstIndex});
+                    this.swaps++;
+                    this.setState({array: this.array, firstIndex: secondIndex, secondIndex: firstIndex, swaps: this.swaps});
                 } else {
                     this.setState({array: this.array, firstIndex: firstIndex, secondIndex: secondIndex});
                 }
@@ -188,8 +197,9 @@ class Animation {
             } else {
                 for(let j = secondIndex; j > firstIndex; j--) {
                     swap(this.array, j, j-1);
+                    this.swaps++;
                 }
-                this.setState({array: this.array, leftBorder: leftBorder, rightBorder: rightBorder, mid: mid, firstIndex: firstIndex, secondIndex: secondIndex});
+                this.setState({array: this.array, leftBorder: leftBorder, rightBorder: rightBorder, mid: mid, firstIndex: firstIndex, secondIndex: secondIndex, swaps: this.swaps});
             }
         }
     }
@@ -204,9 +214,10 @@ class Animation {
             let j;
             for(j = firstIndex; j > secondIndex; j = j - gap) {
                 this.array[j] = this.array[j - gap];
+                this.swaps++;
             }
             this.array[j] = temp;
-            this.setState({firstIndex: secondIndex, secondIndex: firstIndex});
+            this.setState({firstIndex: secondIndex, secondIndex: firstIndex, swaps: this.swaps});
         } else {
             this.setState({firstIndex: firstIndex, secondIndex: secondIndex});
         }
@@ -230,10 +241,12 @@ class Animation {
                 });
             } else {
                 swap(this.array, firstIndex, secondIndex);
+                this.swaps++;
                 this.setState({
                     array: this.array,
                     firstIndex: secondIndex,
-                    secondIndex: firstIndex
+                    secondIndex: firstIndex,
+                    swaps: this.swaps
                 });
             }
         }
