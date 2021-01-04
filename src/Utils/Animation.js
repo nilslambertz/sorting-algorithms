@@ -14,6 +14,7 @@ class Animation {
     algorithm;
     speed;
     interval;
+    stepFunction;
 
     constructor(setState) {
         this.setState = setState;
@@ -37,54 +38,55 @@ class Animation {
     }
 
     startAnimation() {
+        if(this.swap.length !== 0) {
+            this.animate(this.stepFunction);
+            return true;
+        }
+
+        let swap = this.swap;
+        let func;
+
         switch (this.algorithm) {
             case 0: {
-                if(this.swap.length === 0) {
-                    this.swap = getBubbleSortSwap(this.array.slice(0));
-                }
-                this.animate(this.bubbleSortStep);
-                return true;
+                swap = getBubbleSortSwap(this.array.slice(0));
+                func = this.bubbleSortStep;
+                break;
             }
             case 1: {
-                if(this.swap.length === 0) {
-                    this.swap = getInsertionSortSwap(this.array.slice(0));
-                }
-                this.animate(this.insertionSortStep);
-                return true;
+                swap = getInsertionSortSwap(this.array.slice(0));
+                func = this.insertionSortStep;
+                break;
             }
             case 2: {
-                if(this.swap.length === 0) {
-                    this.swap = getMergeSortSwap(this.array.slice(0));
-                }
-                this.animate(this.mergeSortStep);
-                return true;
+                swap = getMergeSortSwap(this.array.slice(0));
+                func = this.mergeSortStep;
+                break;
             }
             case 3: {
-                if(this.swap.length === 0) {
-                    this.swap = getQuickSortSwap(this.array.slice(0));
-                }
-                this.animate(this.quickSortStep);
-                return true;
+                swap = getQuickSortSwap(this.array.slice(0));
+                func = this.quickSortStep;
+                break;
             }
             case 4: {
-                if(this.swap.length === 0) {
-                    this.swap = getCocktailShakerSortSwap(this.array.slice(0));
-                }
-                this.animate(this.cocktailshakerSortStep);
-                return true;
+                swap = getCocktailShakerSortSwap(this.array.slice(0));
+                func = this.cocktailshakerSortStep;
+                break;
             }
             case 5: {
-                if(this.swap.length === 0) {
-                    this.swap = getShellSortswap(this.array.slice(0));
-                }
-                this.animate(this.shellSortStep);
-                return true;
+                swap = getShellSortswap(this.array.slice(0));
+                func = this.shellSortStep;
+                break;
             }
             default: {
                 alert("error");
                 return false;
             }
         }
+
+        this.swap = swap;
+        this.stepFunction = func;
+        this.animate(func);
+        return true;
     }
 
     endAnimation(finished) {
