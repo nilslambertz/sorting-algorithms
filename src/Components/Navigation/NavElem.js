@@ -10,8 +10,7 @@ function NavElem({title, setAlgorithm, currentAlgorithm, animationRunning}) {
     let className = "navElem";
     if(title === currentAlgorithm) {
         className += " active";
-    }
-    if(animationRunning){
+    } else if(animationRunning){
         className += " disabled"
     }
 
