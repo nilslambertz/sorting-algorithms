@@ -154,7 +154,6 @@ class App extends React.Component {
                     changeSpeed={this.changeSpeed}
                 />
                 <Main array={this.state.array}
-                      algorithm={this.state.algorithm}
                       numberOfElements={this.state.numberOfElements}
                       animationSpeed={this.state.animationSpeed}
                       firstIndex={this.state.firstIndex}
