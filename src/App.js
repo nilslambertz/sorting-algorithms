@@ -153,7 +153,7 @@ class App extends React.Component {
                     animationClick={this.animationClick}
                     changeSpeed={this.changeSpeed}
                 />
-                <div id="swapDisplay">
+                <div id="informationDiv">
                     <span>swaps: {this.state.swaps}</span>
                 </div>
                 <Main array={this.state.array}
