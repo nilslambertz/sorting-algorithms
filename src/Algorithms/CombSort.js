@@ -38,9 +38,7 @@ function combSort() {
 function getCombSortSwap(arr) {
     swap = [];
     array = arr;
-    console.log(arr.slice(0));
     combSort();
-    console.log(arr);
     return swap;
 }
 
