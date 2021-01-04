@@ -5,13 +5,13 @@ import NavElem from './NavElem';
 function NavBar({algorithm, setAlgorithm, animationRunning}) {
     return (
         <div id="navBar">
-            <NavElem title="bubblesort" algoNumber="0" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
-            <NavElem title="cocktailshakersort" algoNumber="4" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
-            <NavElem title="combsort" algoNumber="6" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
-            <NavElem title="insertionsort" algoNumber="1" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
-            <NavElem title="mergesort" algoNumber="2" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
-            <NavElem title="quicksort" algoNumber="3" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
-            <NavElem title="shellsort" algoNumber="5" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
+            <NavElem title="bubblesort" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
+            <NavElem title="cocktailshakersort" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
+            <NavElem title="combsort" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
+            <NavElem title="insertionsort" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
+            <NavElem title="mergesort" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
+            <NavElem title="quicksort" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
+            <NavElem title="shellsort" setAlgorithm={setAlgorithm} currentAlgorithm={algorithm} animationRunning={animationRunning}/>
         </div>
     );
 }
