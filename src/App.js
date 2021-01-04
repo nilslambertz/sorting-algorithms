@@ -28,6 +28,7 @@ class App extends React.Component {
         leftBorder: null,
         rightBorder: null,
         mid: null,
+        swaps: 0,
         settingsMenuOpen: false,
         algorithmsMenuOpen: false,
         sorted: false
@@ -152,6 +153,9 @@ class App extends React.Component {
                     animationClick={this.animationClick}
                     changeSpeed={this.changeSpeed}
                 />
+                <div id="swapDisplay">
+                    <span>swaps: {this.state.swaps}</span>
+                </div>
                 <Main array={this.state.array}
                       numberOfElements={this.state.numberOfElements}
                       animationSpeed={this.state.animationSpeed}
