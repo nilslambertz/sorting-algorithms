@@ -1,14 +1,14 @@
 import React from 'react';
 import './NavBar.css';
 
-function NavElem({title, algoNumber, setAlgorithm, currentAlgorithm, animationRunning}) {
+function NavElem({title, setAlgorithm, currentAlgorithm, animationRunning}) {
     function algoChange() {
         if(animationRunning) return;
-        setAlgorithm(algoNumber);
+        setAlgorithm(title);
     }
 
     let className = "navElem";
-    if(parseInt(algoNumber) === parseInt(currentAlgorithm)) {
+    if(title === currentAlgorithm) {
         className += " active";
     }
     if(animationRunning){
