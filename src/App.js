@@ -29,6 +29,7 @@ class App extends React.Component {
         rightBorder: null,
         mid: null,
         swaps: 0,
+        executionTime: 0,
         settingsMenuOpen: false,
         algorithmsMenuOpen: false,
         sorted: false
@@ -154,7 +155,8 @@ class App extends React.Component {
                     changeSpeed={this.changeSpeed}
                 />
                 <div id="informationDiv">
-                    <span>swaps: {this.state.swaps}</span>
+                    <span>swaps: <span className="informationValue">{this.state.swaps}</span></span>
+                    <span>execution time: <span className="informationValue">{this.state.executionTime}ms</span></span>
                 </div>
                 <Main array={this.state.array}
                       numberOfElements={this.state.numberOfElements}
