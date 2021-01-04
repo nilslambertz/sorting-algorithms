@@ -6,6 +6,7 @@ import {getQuickSortSwap} from "../Algorithms/QuickSort";
 import {getCocktailShakerSortSwap} from "../Algorithms/CoktailShakerSort";
 import {getShellSortswap} from "../Algorithms/ShellSort";
 import {swap} from "./Functions";
+import {getCombSortSwap} from "../Algorithms/CombSort";
 
 class Animation {
     setState;
@@ -77,6 +78,11 @@ class Animation {
                 func = this.shellSortStep;
                 break;
             }
+            case 6: {
+                swap = getCombSortSwap(this.array.slice(0));
+                func = this.combSortStep;
+                break;
+            }
             default: {
                 alert("error");
                 return false;
@@ -119,6 +125,19 @@ class Animation {
             this.setState({array: this.array, firstIndex: firstIndex, secondIndex: firstIndex+1});
         } else {
             this.setState({firstIndex: firstIndex+1, secondIndex: firstIndex});
+        }
+    }
+
+    combSortStep = () => {
+        let x = this.swap.shift();
+        let firstIndex = x.firstIndex;
+        let secondIndex = x.secondIndex;
+
+        if(x.elementsSwapped === true) {
+            swap(this.array, firstIndex, secondIndex);
+            this.setState({array: this.array, firstIndex: firstIndex, secondIndex: secondIndex});
+        } else {
+            this.setState({firstIndex: secondIndex, secondIndex: firstIndex});
         }
     }
 
