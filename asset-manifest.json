@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/ArraySortReact/static/css/main.cd8d1ee4.chunk.css",
-    "main.js": "/ArraySortReact/static/js/main.31964ad3.chunk.js",
-    "main.js.map": "/ArraySortReact/static/js/main.31964ad3.chunk.js.map",
+    "main.css": "/ArraySortReact/static/css/main.4303ebac.chunk.css",
+    "main.js": "/ArraySortReact/static/js/main.633cc323.chunk.js",
+    "main.js.map": "/ArraySortReact/static/js/main.633cc323.chunk.js.map",
     "runtime-main.js": "/ArraySortReact/static/js/runtime-main.77917218.js",
     "runtime-main.js.map": "/ArraySortReact/static/js/runtime-main.77917218.js.map",
     "static/js/2.372a8c7a.chunk.js": "/ArraySortReact/static/js/2.372a8c7a.chunk.js",
     "static/js/2.372a8c7a.chunk.js.map": "/ArraySortReact/static/js/2.372a8c7a.chunk.js.map",
     "index.html": "/ArraySortReact/index.html",
-    "precache-manifest.47405643313496bb24a98ef0de3e4a79.js": "/ArraySortReact/precache-manifest.47405643313496bb24a98ef0de3e4a79.js",
+    "precache-manifest.36f05f132acbc9f362b8d44969350f54.js": "/ArraySortReact/precache-manifest.36f05f132acbc9f362b8d44969350f54.js",
     "service-worker.js": "/ArraySortReact/service-worker.js",
-    "static/css/main.cd8d1ee4.chunk.css.map": "/ArraySortReact/static/css/main.cd8d1ee4.chunk.css.map",
+    "static/css/main.4303ebac.chunk.css.map": "/ArraySortReact/static/css/main.4303ebac.chunk.css.map",
     "static/js/2.372a8c7a.chunk.js.LICENSE.txt": "/ArraySortReact/static/js/2.372a8c7a.chunk.js.LICENSE.txt",
     "static/media/index.css": "/ArraySortReact/static/media/backgroundGray.2386eced.png"
   },
   "entrypoints": [
     "static/js/runtime-main.77917218.js",
     "static/js/2.372a8c7a.chunk.js",
-    "static/css/main.cd8d1ee4.chunk.css",
-    "static/js/main.31964ad3.chunk.js"
+    "static/css/main.4303ebac.chunk.css",
+    "static/js/main.633cc323.chunk.js"
   ]
 }
