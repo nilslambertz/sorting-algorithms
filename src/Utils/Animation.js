@@ -60,13 +60,13 @@ class Animation {
         this.swapFunction = this.algorithms[algo].getSwap;
         this.stepFunction = this.algorithms[algo].step;
         this.swaps = 0;
-        this.setState({swaps: 0});
+        this.setState({swaps: 0, executionTime: 0});
         this.swap = [];
     }
 
     changeArray(array) {
         this.swaps = 0;
-        this.setState({swaps: 0});
+        this.setState({swaps: 0, executionTime: 0});
         this.array = array;
         this.swap = [];
     }
@@ -86,7 +86,10 @@ class Animation {
             return false;
         }
 
+        let start = performance.now();
         this.swap = this.swapFunction(this.array.slice(0));
+        let end = performance.now();
+        this.setState({executionTime: (end - start).toFixed(2)});
         this.animate(this.stepFunction);
         return true;
     }
