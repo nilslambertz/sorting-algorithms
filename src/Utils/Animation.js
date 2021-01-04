@@ -18,7 +18,7 @@ class Animation {
     stepFunction;
     algorithms;
 
-    constructor(setState) {
+    constructor(setState, algo) {
         this.algorithms =  {
             "bubblesort": {
                 getSwap: getBubbleSortSwap,
@@ -51,7 +51,7 @@ class Animation {
         }
 
         this.setState = setState;
-        this.changeAlgorithm("bubblesort");
+        this.changeAlgorithm(algo);
         this.speed = 5;
         this.swap = [];
     }
