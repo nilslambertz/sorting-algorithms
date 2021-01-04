@@ -19,7 +19,7 @@ function NavBar({algorithm, setAlgorithm, animationRunning}) {
                 } else if(animationRunning){
                     className += " disabled"
                 }
-                return <div className={className} onClick={() => changeAlgorithm(c)}>{c}</div>;
+                return <div key={c} className={className} onClick={() => changeAlgorithm(c)}>{c}</div>;
             })}
         </div>
     );
