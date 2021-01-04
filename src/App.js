@@ -17,7 +17,7 @@ const stopStyle = {
 
 class App extends React.Component {
     state = {
-        algorithm: "bubblesort",
+        algorithm: "mergesort",
         maxElems: 600,
         numberOfElements: 100,
         animationSpeed: 500,
@@ -91,7 +91,7 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        animation = new Animation(this.changeState);
+        animation = new Animation(this.changeState, this.state.algorithm);
         this.createArray();
     }
 
