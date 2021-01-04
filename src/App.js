@@ -17,7 +17,7 @@ const stopStyle = {
 
 class App extends React.Component {
     state = {
-        algorithm: 0,
+        algorithm: "bubblesort",
         maxElems: 600,
         numberOfElements: 100,
         animationSpeed: 500,
@@ -33,10 +33,9 @@ class App extends React.Component {
         sorted: false
     }
 
-    setAlgorithm = (nr) => {
-        nr = parseInt(nr);
-        this.setState({algorithm: nr}, () => {
-            animation.changeAlgorithm(nr);
+    setAlgorithm = (algo) => {
+        this.setState({algorithm: algo}, () => {
+            animation.changeAlgorithm(algo);
             this.setState({firstIndex: null, secondIndex: null, leftBorder: null, rightBorder: null, mid: null});
         });
     }
