@@ -1,9 +1,7 @@
 import React from 'react';
 import './NavBar.css';
 
-const algorithms = ["bubblesort", "cocktailshakersort", "combsort", "insertionsort", "mergesort", "quicksort", "shellsort"]
-
-function NavBar({algorithm, setAlgorithm, animationRunning}) {
+function NavBar({algorithms, currentAlgorithm, setAlgorithm, animationRunning}) {
     function changeAlgorithm(title) {
         if(animationRunning === true) return;
 
@@ -14,7 +12,7 @@ function NavBar({algorithm, setAlgorithm, animationRunning}) {
         <div id="navBar">
             {algorithms.map(function(c,i,a) {
                 let className = "navElem";
-                if(c === algorithm) {
+                if(c === currentAlgorithm) {
                     className += " active";
                 } else if(animationRunning){
                     className += " disabled"
