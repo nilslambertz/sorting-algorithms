@@ -73,7 +73,8 @@
   }
 
   #mainDiv {
-    padding: 0 0 50px 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
 
   #startStopButton {
