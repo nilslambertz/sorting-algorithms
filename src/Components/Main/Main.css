@@ -7,22 +7,3 @@
     white-space: nowrap;
     overflow: auto;
 }
-
-#footer {
-    position: absolute;
-    cursor: default;
-    font-size: 20px;
-    color: gray;
-    bottom: 10px;
-    width: calc(100% - 40px);
-}
-
-#footer a {
-    color: gray;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-#footer a:hover {
-    color: white;
-}

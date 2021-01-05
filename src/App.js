@@ -168,6 +168,7 @@ class App extends React.Component {
                       mid={this.state.mid}
                       sorted={this.state.sorted}
                 />
+                <div id="footer">by <a href="http://www.nilslambertz.de" target="_blank" rel="noopener noreferrer">nils lambertz</a> - <a href="https://github.com/nilslambertz/ArraySortReact" target="_blank" rel="noopener noreferrer">source code</a></div>
             </div>
         )
     }
