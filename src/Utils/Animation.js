@@ -115,6 +115,10 @@ class Animation {
         }, this.speed);
     }
 
+    getAlgorithmTitles = () => {
+        return Object.keys(this.algorithms);
+    }
+
     bubbleSortStep = () => {
         let x = this.swap.shift();
         let firstIndex = x.firstIndex;
