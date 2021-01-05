@@ -17,7 +17,8 @@ const stopStyle = {
 
 class App extends React.Component {
     state = {
-        algorithm: "mergesort",
+        algorithms: [],
+        currentAlgorithm: "mergesort",
         maxElems: 600,
         numberOfElements: 100,
         animationSpeed: 500,
@@ -36,7 +37,7 @@ class App extends React.Component {
     }
 
     setAlgorithm = (algo) => {
-        this.setState({algorithm: algo}, () => {
+        this.setState({currentAlgorithm: algo}, () => {
             animation.changeAlgorithm(algo);
             this.setState({firstIndex: null, secondIndex: null, leftBorder: null, rightBorder: null, mid: null});
         });
@@ -93,7 +94,9 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        animation = new Animation(this.changeState, this.state.algorithm);
+        animation = new Animation(this.changeState, this.state.currentAlgorithm);
+        let algos = animation.getAlgorithmTitles();
+        this.setState({algorithms: algos});
         this.createArray();
     }
 
@@ -142,7 +145,7 @@ class App extends React.Component {
                         <img src={require("./images/algorithmIcon.png")} alt="Algorithm"/>
                     </div>
                 </div>
-                <NavBar algorithm={this.state.algorithm} animationRunning={this.state.animationRunning} setAlgorithm={this.setAlgorithm}/>
+                <NavBar algorithms={this.state.algorithms} currentAlgorithm={this.state.currentAlgorithm} animationRunning={this.state.animationRunning} setAlgorithm={this.setAlgorithm}/>
                 <SettingsBar
                     maxElems={this.state.maxElems}
                     numberOfElements={this.state.numberOfElements}
