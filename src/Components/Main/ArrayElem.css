@@ -5,6 +5,8 @@
 
 .arrayElem {
     position: relative;
+    flex-basis: 100%;
+    margin-left: 1px;
     min-width: 1px;
     max-width: 100px;
     background: #c8c8c8 linear-gradient(to bottom, #aeaeae 50px, #c8c8c8 200px);
