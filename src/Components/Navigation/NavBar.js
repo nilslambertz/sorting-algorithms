@@ -19,18 +19,21 @@ function NavBar({
     >
       {algorithms.map(function (c, i, a) {
         let className = "";
+
+        if (animationRunning) {
+          className += "opacity-10";
+        } else {
+          className += "cursor-pointer hover:scale-105 transition-all";
+        }
+
         if (c === currentAlgorithm) {
           className = "!text-white underline";
-        } else if (animationRunning) {
-          className = "!cursor-default opacity-10 hover:scale-100";
         }
+
         return (
           <div
             key={c}
-            className={
-              "text-2xl text-gray-400 cursor-pointer hover:scale-105 transition-all " +
-              className
-            }
+            className={"text-2xl text-gray-400 " + className}
             onClick={() => changeAlgorithm(c)}
           >
             {c}
