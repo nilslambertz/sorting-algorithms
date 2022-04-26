@@ -23,7 +23,7 @@ function NavBar({
         if (animationRunning) {
           className += "opacity-10";
         } else {
-          className += "cursor-pointer hover:scale-105 transition-all";
+          className += "cursor-pointer hover:scale-105";
         }
 
         if (c === currentAlgorithm) {
@@ -33,7 +33,7 @@ function NavBar({
         return (
           <div
             key={c}
-            className={"text-2xl text-gray-400 " + className}
+            className={"text-2xl text-gray-400 transition-all " + className}
             onClick={() => changeAlgorithm(c)}
           >
             {c}

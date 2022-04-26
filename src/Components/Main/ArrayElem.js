@@ -3,9 +3,9 @@ import "./ArrayElem.css";
 
 class ArrayElem extends React.Component {
   render() {
-    let className = "arrayElem";
+    let className = "arrayElem bg-gray-300 ";
     if (this.props.sorted) {
-      className += " sorted";
+      className += " transition-colors !bg-green-600";
     } else {
       if (this.props.special) className += " " + this.props.special;
     }

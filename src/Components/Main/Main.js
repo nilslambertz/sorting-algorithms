@@ -18,6 +18,7 @@ class Main extends React.Component {
     let second = this.props.secondIndex;
     let leftBorder = this.props.leftBorder;
     let rightBorder = this.props.rightBorder;
+    let sorted = this.props.sorted;
     let mid = this.props.mid;
     let notNull = mid !== null && leftBorder !== null && rightBorder !== null;
 
@@ -36,6 +37,7 @@ class Main extends React.Component {
           array={a}
           index={i}
           special={special}
+          sorted={sorted}
         />
       );
     });
