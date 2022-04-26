@@ -189,15 +189,16 @@ class App extends React.Component {
           animationClick={this.animationClick}
           changeSpeed={this.changeSpeed}
         />
-        <div id="informationDiv">
+        <div
+          id="informationDiv"
+          className="px-5 py-1 border-b flex flex-row justify-between text-gray-300"
+        >
           <span>
-            swaps: <span className="informationValue">{this.state.swaps}</span>
+            swaps: <span className="text-white">{this.state.swaps}</span>
           </span>
           <span>
             execution time:{" "}
-            <span className="informationValue">
-              {this.state.executionTime}ms
-            </span>
+            <span className="text-white">{this.state.executionTime}ms</span>
           </span>
         </div>
         <Main
