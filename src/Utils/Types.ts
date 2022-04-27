@@ -6,7 +6,10 @@ export interface StepDetails {
   secondArea?: [number, number];
 }
 
-export interface SortAlgorithm {
-  name: string;
-  generateStepFunction: (array: number[]) => StepDetails[];
+export type SortAlgorithms = {
+  [key in Algorithms]: (arr: number[]) => StepDetails[];
+};
+
+export enum Algorithms {
+  bubbleSort = "bubblesort",
 }

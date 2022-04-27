@@ -1,9 +1,6 @@
 import { getBubbleSortSteps } from "../Algorithms/BubbleSort";
-import { SortAlgorithm } from "./Types";
+import { Algorithms } from "./Types";
 
-export const algorithms: SortAlgorithm[] = [
-  {
-    name: "bubblesort",
-    generateStepFunction: getBubbleSortSteps,
-  },
-];
+export const algorithms = {
+  [Algorithms.bubbleSort]: getBubbleSortSteps,
+};
