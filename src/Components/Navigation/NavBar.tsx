@@ -33,7 +33,7 @@ function NavBar({
               (currentAlgorithm === algorithm ? "!text-white underline" : "")
             }
             disabled={animationRunning && algorithm !== currentAlgorithm}
-            onClick={() => changeAlgorithm(algorithm as any)}
+            onClick={() => changeAlgorithm(algorithm as Algorithms)}
           >
             {algorithm}
           </button>
