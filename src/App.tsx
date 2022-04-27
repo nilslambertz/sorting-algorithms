@@ -100,8 +100,8 @@ export default function App() {
             if (swap.length !== 2) return;
 
             swapArrayElements(newArray, swap[0], swap[1]);
-            setNumberOfSwaps((n) => n + 1);
           });
+          setNumberOfSwaps((n) => n + (swaps?.length ?? 0));
 
           setCurrentStep(nextStep);
 
