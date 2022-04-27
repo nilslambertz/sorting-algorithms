@@ -14,5 +14,5 @@ export default function ArrayElem({ sorted, special, style }: ArrayElemProps) {
   } else {
     if (special) className += " " + special;
   }
-  return <div className={"flex-1 " + className} style={style} />;
+  return <div className={"flex-1 min-w-[1px] " + className} style={style} />;
 }

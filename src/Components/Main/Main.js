@@ -6,7 +6,7 @@ class Main extends React.Component {
     return (
       <div
         id="mainDiv"
-        className="px-10 flex flex-row justify-center gap-[1px]"
+        className="p-10 pt-0 w-full overflow-x-auto flex flex-row justify-center gap-[1px]"
       >
         {this.printArray()}
       </div>
