@@ -14,4 +14,5 @@ export enum Algorithms {
   bubbleSort = "bubblesort",
   shellSort = "shellsort",
   cocktailshakersort = "cocktailshakersort",
+  combsort = "combsort",
 }
