@@ -5,3 +5,8 @@ export interface StepDetails {
   firstArea?: [number, number];
   secondArea?: [number, number];
 }
+
+export interface SortAlgorithm {
+  name: string;
+  generateStepFunction: (array: number[]) => StepDetails[];
+}
