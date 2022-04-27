@@ -5,7 +5,7 @@ export const arrayIsSorted = (arr: number[]) => {
   return true;
 };
 
-export const createNewArray = (numberOfElems: number, maxValue: number) => {
+export const generateArray = (numberOfElems: number, maxValue: number) => {
   let allValues = [...Array(maxValue).keys()];
   let array = [];
   for (let i = 0; i < numberOfElems; i++) {
@@ -15,7 +15,7 @@ export const createNewArray = (numberOfElems: number, maxValue: number) => {
   return array;
 };
 
-export const swap = (
+export const swapArrayElements = (
   arr: number[],
   firstIndex: number,
   secondIndex: number
