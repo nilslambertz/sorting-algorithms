@@ -12,4 +12,5 @@ export type SortAlgorithms = {
 
 export enum Algorithms {
   bubbleSort = "bubblesort",
+  shellSort = "shellsort",
 }
