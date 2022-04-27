@@ -16,4 +16,5 @@ export enum Algorithms {
   cocktailshakerSort = "cocktailshakersort",
   combSort = "combsort",
   insertionSort = "insertionsort",
+  mergeSort = "mergesort",
 }
