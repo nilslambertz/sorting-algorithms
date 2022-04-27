@@ -1,12 +1,19 @@
 import React from "react";
 
+interface NavBarProps {
+  algorithms: string[];
+  currentAlgorithm: string;
+  setAlgorithm: (t: string) => void;
+  animationRunning: boolean;
+}
+
 function NavBar({
   algorithms,
   currentAlgorithm,
   setAlgorithm,
   animationRunning,
-}) {
-  function changeAlgorithm(title) {
+}: NavBarProps) {
+  function changeAlgorithm(title: string) {
     if (animationRunning === true) return;
 
     setAlgorithm(title);
@@ -17,7 +24,7 @@ function NavBar({
       id="navBar"
       className="w-full select-none h-20 border-b flex flex-row flex-wrap justify-center items-center gap-10"
     >
-      {algorithms.map(function (c, i, a) {
+      {algorithms.map((algorithm, index) => {
         let className = "";
 
         if (animationRunning) {
@@ -26,17 +33,17 @@ function NavBar({
           className += "cursor-pointer hover:scale-105";
         }
 
-        if (c === currentAlgorithm) {
+        if (algorithm === currentAlgorithm) {
           className = "!text-white underline";
         }
 
         return (
           <div
-            key={c}
+            key={algorithm}
             className={"text-2xl text-gray-400 transition-all " + className}
-            onClick={() => changeAlgorithm(c)}
+            onClick={() => changeAlgorithm(algorithm)}
           >
-            {c}
+            {algorithm}
           </div>
         );
       })}
