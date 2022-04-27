@@ -1,5 +1,16 @@
 import React from "react";
 
+interface SettingsBarProps {
+  maxElems: number;
+  numberOfElements: number;
+  animationRunning: boolean;
+  animationSpeed: number;
+  changeElemNumber: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  newArrayClick: () => void;
+  animationClick: () => void;
+  changeSpeed: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
 function SettingsBar({
   maxElems,
   numberOfElements,
@@ -9,7 +20,7 @@ function SettingsBar({
   newArrayClick,
   animationClick,
   changeSpeed,
-}) {
+}: SettingsBarProps) {
   const minElems = 5;
 
   return (
