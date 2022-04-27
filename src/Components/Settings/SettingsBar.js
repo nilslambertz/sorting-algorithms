@@ -31,7 +31,7 @@ function SettingsBar({
       </div>
       <div
         className={
-          "text-2xl text-shadow hover:text-shadow-blurred cursor-pointer " +
+          "text-2xl w-16 text-center text-shadow hover:text-shadow-blurred cursor-pointer " +
           (animationRunning ? "text-orange-500" : "text-green-400")
         }
         onClick={animationClick}
