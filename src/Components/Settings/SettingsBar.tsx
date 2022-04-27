@@ -51,7 +51,7 @@ function SettingsBar({
       </div>
       <div
         className={
-          "text-2xl text-shadow hover:text-shadow-blurred cursor-pointer text-blue-200 " +
+          "text-2xl transition-opacity text-shadow hover:text-shadow-blurred cursor-pointer text-blue-200 " +
           (animationRunning ? "opacity-10" : "")
         }
         onClick={newArrayClick}
@@ -60,7 +60,7 @@ function SettingsBar({
       </div>
       <div
         className={
-          "flex flex-col gap-2 items-center " +
+          "flex flex-col gap-2 items-center transition-opacity " +
           (animationRunning ? "opacity-10" : "")
         }
       >
