@@ -29,10 +29,8 @@ function bubbleSort(array: number[]): StepDetails[] {
   return steps;
 }
 
-function getBubbleSortSteps(arr: number[]): StepDetails[] {
+export const getBubbleSortSteps = (arr: number[]): StepDetails[] => {
   const array = [...arr];
 
   return bubbleSort(array);
-}
-
-export { getBubbleSortSteps };
+};
