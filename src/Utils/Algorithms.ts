@@ -3,6 +3,7 @@ import { getCocktailShakerSortSteps } from "../Algorithms/CoktailShakerSort";
 import { getCombSortSteps } from "../Algorithms/CombSort";
 import { getInsertionSortSteps } from "../Algorithms/InsertionSort";
 import { getMergeSortSteps } from "../Algorithms/MergeSort";
+import { getQuickSortSteps } from "../Algorithms/QuickSort";
 import { getShellSortSteps } from "../Algorithms/ShellSort";
 import { Algorithms, SortAlgorithms } from "./Types";
 
@@ -12,5 +13,6 @@ export const algorithms: SortAlgorithms = {
   [Algorithms.combSort]: getCombSortSteps,
   [Algorithms.insertionSort]: getInsertionSortSteps,
   [Algorithms.mergeSort]: getMergeSortSteps,
+  [Algorithms.quickSort]: getQuickSortSteps,
   [Algorithms.shellSort]: getShellSortSteps,
 };
