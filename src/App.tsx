@@ -23,7 +23,7 @@ export default function App() {
   const [totalNumberOfSwaps, setTotalNumberOfSwaps] = useState(0);
   const [currentStep, setCurrentStep] = useState<StepDetails | undefined>();
 
-  const [algorithm, setAlgorithm] = useState(Algorithms.bubbleSort);
+  const [algorithm, setAlgorithm] = useState(Algorithms.mergeSort);
   const [numberOfElements, setNumberOfElements] = useState(100);
   const [animationSpeed, setAnimationSpeed] = useState(500);
 
