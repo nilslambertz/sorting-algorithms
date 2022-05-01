@@ -125,7 +125,13 @@ export default function App() {
 
     if (running) {
       if (!stepsGenerated) {
+        const start = performance.now();
         const steps = algorithms[algorithm](array);
+        const end = performance.now();
+
+        const timeElapsed = end - start;
+        setExecutionTime(timeElapsed);
+
         setSteps(steps);
         setStepsGenerated(true);
       }
