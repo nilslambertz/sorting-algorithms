@@ -32,7 +32,5 @@ function bubbleSort(array: number[]): StepDetails[] {
 }
 
 export const getBubbleSortSteps = (arr: number[]): StepDetails[] => {
-  const array = [...arr];
-
-  return bubbleSort(array);
+  return bubbleSort([...arr]);
 };

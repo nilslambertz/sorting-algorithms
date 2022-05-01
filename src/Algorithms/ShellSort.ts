@@ -35,7 +35,5 @@ function shellSort(array: number[]): StepDetails[] {
 }
 
 export const getShellSortSteps = (arr: number[]): StepDetails[] => {
-  const array = [...arr];
-
-  return shellSort(array);
+  return shellSort([...arr]);
 };

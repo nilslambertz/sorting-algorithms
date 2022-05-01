@@ -60,7 +60,5 @@ function cocktailShakerSort(array: number[]): StepDetails[] {
 }
 
 export const getCocktailShakerSortSteps = (arr: number[]): StepDetails[] => {
-  const array = [...arr];
-
-  return cocktailShakerSort(array);
+  return cocktailShakerSort([...arr]);
 };

@@ -92,8 +92,5 @@ function partition(
 }
 
 export const getQuickSortSteps = (arr: number[]): StepDetails[] => {
-  const steps: StepDetails[] = [];
-  const array = [...arr];
-
-  return quickSort(array, steps, 0, arr.length - 1);
+  return quickSort([...arr], [], 0, arr.length - 1);
 };

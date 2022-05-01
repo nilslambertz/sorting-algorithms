@@ -39,7 +39,5 @@ function combSort(array: number[]): StepDetails[] {
 }
 
 export const getCombSortSteps = (arr: number[]): StepDetails[] => {
-  const array = [...arr];
-
-  return combSort(array);
+  return combSort([...arr]);
 };

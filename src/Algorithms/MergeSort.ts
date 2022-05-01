@@ -94,8 +94,5 @@ function merge(
 }
 
 export const getMergeSortSteps = (arr: number[]): StepDetails[] => {
-  const steps: StepDetails[] = [];
-  const array = [...arr];
-
-  return mergeSort(array, steps, 0, arr.length - 1);
+  return mergeSort([...arr], [], 0, arr.length - 1);
 };

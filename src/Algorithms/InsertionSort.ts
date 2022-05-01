@@ -33,7 +33,5 @@ function insertionSort(array: number[]): StepDetails[] {
 }
 
 export const getInsertionSortSteps = (arr: number[]): StepDetails[] => {
-  const array = [...arr];
-
-  return insertionSort(array);
+  return insertionSort([...arr]);
 };
