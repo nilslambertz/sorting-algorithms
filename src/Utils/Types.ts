@@ -1,5 +1,5 @@
 export interface StepDetails {
-  swap?: number[][];
+  swap?: [number, number][];
   firstHighlight?: number;
   secondHighlight?: number;
   firstArea?: [number, number];

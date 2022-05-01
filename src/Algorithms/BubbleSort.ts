@@ -16,8 +16,10 @@ function bubbleSort(array: number[]): StepDetails[] {
         array[i] = array[i + 1];
         array[i + 1] = temp;
 
+        const swap: [number, number][] = [[i, i + 1]];
+
         const secondStep = {
-          swap: [[i, i + 1]],
+          swap: swap,
           firstHighlight: i + 1,
           secondHighlight: i,
         };

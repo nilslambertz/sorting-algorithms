@@ -4,7 +4,7 @@ function insertionSort(array: number[]): StepDetails[] {
   const steps: StepDetails[] = [];
 
   for (let i = 0; i < array.length; i++) {
-    const swaps: number[][] = [];
+    const swaps: [number, number][] = [];
     const firstStep: StepDetails = {
       firstHighlight: i,
     };

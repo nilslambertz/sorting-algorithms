@@ -72,7 +72,7 @@ function merge(
         }
       }
 
-      const swaps: number[][] = [];
+      const swaps: [number, number][] = [];
       for (let x = j; x > firstBigger; x--) {
         let temp = array[x];
         array[x] = array[x - 1];

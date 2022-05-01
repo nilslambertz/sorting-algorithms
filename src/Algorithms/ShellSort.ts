@@ -6,7 +6,7 @@ function shellSort(array: number[]): StepDetails[] {
   let gaps = [701, 301, 132, 57, 23, 10, 4, 1]; // Marcin Ciura's gap sequence
   for (let gap of gaps) {
     for (let i = gap; i < array.length; i++) {
-      const swaps: number[][] = [];
+      const swaps: [number, number][] = [];
 
       let temp = array[i];
       let j;

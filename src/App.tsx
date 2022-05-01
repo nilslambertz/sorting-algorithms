@@ -99,8 +99,6 @@ export default function App() {
           const swaps = nextStep.swap;
 
           swaps?.forEach((swap) => {
-            if (swap.length !== 2) return;
-
             swapArrayElements(newArray, swap[0], swap[1]);
           });
           setNumberOfSwaps((n) => n + (swaps?.length ?? 0));
