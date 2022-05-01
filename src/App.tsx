@@ -36,21 +36,23 @@ export default function App() {
     createNewArray();
   }, [numberOfElements]);
 
+  useEffect(() => {
+    resetValues();
+  }, [algorithm]);
+
   const resetValues = () => {
     setStepsGenerated(false);
+    setSteps([]);
+    setCurrentStep(undefined);
+
     setNumberOfSwaps(0);
     setExecutionTime(0);
-    setCurrentStep(undefined);
   };
 
   const changeAlgorithm = (algo: Algorithms) => {
-    if (animationRunning || algo === algorithm) return;
+    if (animationRunning) return;
 
     setAlgorithm(algo);
-    resetValues();
-
-    setSteps([]);
-    setCurrentStep(undefined);
   };
 
   const changeSpeed = (event: React.ChangeEvent<HTMLInputElement>) => {
