@@ -19,7 +19,8 @@ export default function App() {
   const [sorted, setSorted] = useState(false);
 
   const [stepsGenerated, setStepsGenerated] = useState(false);
-  const [steps, setSteps] = useState<StepDetails[]>([]);
+  const [, setSteps] = useState<StepDetails[]>([]);
+  const [totalNumberOfSwaps, setTotalNumberOfSwaps] = useState(0);
   const [currentStep, setCurrentStep] = useState<StepDetails | undefined>();
 
   const [algorithm, setAlgorithm] = useState(Algorithms.bubbleSort);
@@ -46,6 +47,7 @@ export default function App() {
     setCurrentStep(undefined);
 
     setNumberOfSwaps(0);
+    setTotalNumberOfSwaps(0);
     setExecutionTime(0);
   };
 
@@ -131,6 +133,9 @@ export default function App() {
 
         const timeElapsed = end - start;
         setExecutionTime(timeElapsed);
+        setTotalNumberOfSwaps(
+          steps.reduce((prev, curr) => prev + (curr.swap?.length ?? 0), 0)
+        );
 
         setSteps(steps);
         setStepsGenerated(true);
@@ -174,6 +179,7 @@ export default function App() {
       <Stats
         executionTime={executionTime}
         numberOfSwaps={numberOfSwaps}
+        totalNumberOfSwaps={totalNumberOfSwaps}
       ></Stats>
       <Main array={array} currentStep={currentStep} sorted={sorted} />
       <Footer></Footer>
