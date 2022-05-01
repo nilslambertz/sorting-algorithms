@@ -1,5 +1,5 @@
 import { getBubbleSortSteps } from "../Algorithms/BubbleSort";
-import { getCocktailShakerSortSteps } from "../Algorithms/CoktailShakerSort";
+import { getCocktailShakerSortSteps } from "../Algorithms/CocktailShakerSort";
 import { getCombSortSteps } from "../Algorithms/CombSort";
 import { getInsertionSortSteps } from "../Algorithms/InsertionSort";
 import { getMergeSortSteps } from "../Algorithms/MergeSort";
