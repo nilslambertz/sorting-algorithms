@@ -1,6 +1,6 @@
 {
-  "homepage": "https://nilslambertz.github.io/ArraySortReact",
-  "name": "arraysortreact",
+  "homepage": "https://nilslambertz.github.io/sorting-algorithms",
+  "name": "sorting-algorithms",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
