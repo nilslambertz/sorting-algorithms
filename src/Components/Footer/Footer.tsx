@@ -14,7 +14,7 @@ export default function Footer() {
       </a>
       -
       <a
-        href="https://github.com/nilslambertz/ArraySortReact"
+        href="https://github.com/nilslambertz/sorting-algorithms"
         target="_blank"
         rel="noopener noreferrer"
         className="transition-colors hover:text-white"
