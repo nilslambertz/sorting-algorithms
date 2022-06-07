@@ -1,3 +1,4 @@
+import { swapArrayElements } from "../Utils/Functions";
 import { StepDetails } from "../Utils/Types";
 
 function cocktailShakerSort(array: number[]): StepDetails[] {
@@ -9,46 +10,38 @@ function cocktailShakerSort(array: number[]): StepDetails[] {
     let newLeftsorted = rightSorted;
     let newRightSorted = leftSorted;
     for (let i = leftSorted; i < rightSorted + 1; i++) {
-      const firstStep: StepDetails = {
+      steps.push({
         firstHighlight: i,
         secondHighlight: i + 1,
-      };
-      steps.push(firstStep);
+      });
 
       if (array[i] > array[i + 1]) {
-        let temp = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = temp;
+        swapArrayElements(array, i, i + 1);
 
-        const secondStep: StepDetails = {
+        steps.push({
           firstHighlight: i + 1,
           secondHighlight: i,
           swap: [[i, i + 1]],
-        };
-        steps.push(secondStep);
+        });
 
         newRightSorted = i;
       }
     }
     rightSorted = newRightSorted - 1;
     for (let i = rightSorted; i > leftSorted - 1; i--) {
-      const thirdStep: StepDetails = {
+      steps.push({
         firstHighlight: i,
         secondHighlight: i + 1,
-      };
-      steps.push(thirdStep);
+      });
 
       if (array[i] > array[i + 1]) {
-        let temp = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = temp;
+        swapArrayElements(array, i, i + 1);
 
-        const thirdStep: StepDetails = {
+        steps.push({
           firstHighlight: i + 1,
           secondHighlight: i,
           swap: [[i, i + 1]],
-        };
-        steps.push(thirdStep);
+        });
 
         newLeftsorted = i;
       }

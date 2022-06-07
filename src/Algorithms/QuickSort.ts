@@ -1,3 +1,4 @@
+import { swapArrayElements } from "../Utils/Functions";
 import { StepDetails } from "../Utils/Types";
 
 function quickSort(
@@ -11,11 +12,10 @@ function quickSort(
   }
 
   const mid = Math.floor((right + left) / 2);
-  const firstStep: StepDetails = {
+  steps.push({
     firstArea: [left, mid],
     secondArea: [mid + 1, right],
-  };
-  steps.push(firstStep);
+  });
 
   let j = partition(array, steps, left, right);
   quickSort(array, steps, left, j - 1);
@@ -38,55 +38,47 @@ function partition(
 
   while (i < j) {
     while (i < right && array[i] < x) {
-      const firstStep: StepDetails = {
+      steps.push({
         firstHighlight: i,
         secondHighlight: j,
         firstArea: [left, mid],
         secondArea: [mid + 1, right],
-      };
-      steps.push(firstStep);
+      });
 
       i++;
     }
     while (j > left && array[j] >= x) {
-      const firstStep: StepDetails = {
+      steps.push({
         firstHighlight: i,
         secondHighlight: j,
         firstArea: [left, mid],
         secondArea: [mid + 1, right],
-      };
-      steps.push(firstStep);
+      });
 
       j--;
     }
     if (i < j) {
-      let temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
+      swapArrayElements(array, i, j);
 
-      const secondStep: StepDetails = {
+      steps.push({
         firstHighlight: j,
         secondHighlight: i,
         firstArea: [left, mid],
         secondArea: [mid + 1, right],
         swap: [[i, j]],
-      };
-      steps.push(secondStep);
+      });
     }
   }
   if (array[i] > x) {
-    let temp = array[i];
-    array[i] = array[right];
-    array[right] = temp;
+    swapArrayElements(array, i, right);
 
-    const thirdStep: StepDetails = {
+    steps.push({
       firstHighlight: right,
       secondHighlight: i,
       firstArea: [left, mid],
       secondArea: [mid + 1, right],
       swap: [[i, right]],
-    };
-    steps.push(thirdStep);
+    });
   }
   return i;
 }

@@ -1,3 +1,4 @@
+import { swapArrayElements } from "../Utils/Functions";
 import { StepDetails } from "../Utils/Types";
 
 function combSort(array: number[]): StepDetails[] {
@@ -15,23 +16,19 @@ function combSort(array: number[]): StepDetails[] {
     }
 
     for (let i = 0; i + gap < array.length; i++) {
-      const firstStep: StepDetails = {
+      steps.push({
         firstHighlight: i,
         secondHighlight: i + gap,
-      };
-      steps.push(firstStep);
+      });
 
       if (array[i] > array[i + gap]) {
-        let temp = array[i];
-        array[i] = array[i + gap];
-        array[i + gap] = temp;
+        swapArrayElements(array, i, i + gap);
 
-        const secondStep: StepDetails = {
+        steps.push({
           firstHighlight: i + gap,
           secondHighlight: i,
           swap: [[i, i + gap]],
-        };
-        steps.push(secondStep);
+        });
       }
     }
   }

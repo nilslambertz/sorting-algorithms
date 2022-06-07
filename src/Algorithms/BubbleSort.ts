@@ -1,3 +1,4 @@
+import { swapArrayElements } from "../Utils/Functions";
 import { StepDetails } from "../Utils/Types";
 
 function bubbleSort(array: number[]): StepDetails[] {
@@ -5,25 +6,19 @@ function bubbleSort(array: number[]): StepDetails[] {
 
   for (let n = array.length; n > 1; n--) {
     for (let i = 0; i < n - 1; i++) {
-      const firstStep: StepDetails = {
+      steps.push({
         firstHighlight: i,
         secondHighlight: i + 1,
-      };
-      steps.push(firstStep);
+      });
 
       if (array[i] > array[i + 1]) {
-        let temp = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = temp;
+        swapArrayElements(array, i, i + 1);
 
-        const swap: [number, number][] = [[i, i + 1]];
-
-        const secondStep = {
-          swap: swap,
+        steps.push({
+          swap: [[i, i + 1]],
           firstHighlight: i + 1,
           secondHighlight: i,
-        };
-        steps.push(secondStep);
+        });
       }
     }
   }

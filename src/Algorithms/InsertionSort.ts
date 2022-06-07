@@ -5,10 +5,9 @@ function insertionSort(array: number[]): StepDetails[] {
 
   for (let i = 0; i < array.length; i++) {
     const swaps: [number, number][] = [];
-    const firstStep: StepDetails = {
+    steps.push({
       firstHighlight: i,
-    };
-    steps.push(firstStep);
+    });
 
     let temp = array[i];
     let j = i;
@@ -20,11 +19,10 @@ function insertionSort(array: number[]): StepDetails[] {
       j--;
     }
 
-    const secondStep: StepDetails = {
+    steps.push({
       secondHighlight: j,
       swap: swaps,
-    };
-    steps.push(secondStep);
+    });
 
     array[j] = temp;
   }

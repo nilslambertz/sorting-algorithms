@@ -16,18 +16,17 @@ function shellSort(array: number[]): StepDetails[] {
       }
       array[j] = temp;
 
-      const firstStep: StepDetails = {
-        firstHighlight: i,
-        secondHighlight: j,
-      };
-      steps.push(firstStep);
-
-      const secondStep = {
-        swap: swaps,
-        firstHighlight: i,
-        secondHighlight: j,
-      };
-      steps.push(secondStep);
+      steps.push(
+        {
+          firstHighlight: i,
+          secondHighlight: j,
+        },
+        {
+          swap: swaps,
+          firstHighlight: j,
+          secondHighlight: i,
+        }
+      );
     }
   }
 

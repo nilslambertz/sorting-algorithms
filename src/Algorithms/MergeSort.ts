@@ -1,3 +1,4 @@
+import { swapArrayElements } from "../Utils/Functions";
 import { StepDetails } from "../Utils/Types";
 
 function mergeSort(
@@ -10,32 +11,27 @@ function mergeSort(
     // nothing to do
   } else {
     if (right - left === 1) {
-      const firstStep: StepDetails = {
+      steps.push({
         firstHighlight: left,
         secondHighlight: right,
-      };
-      steps.push(firstStep);
+      });
 
       if (array[left] > array[right]) {
-        let temp = array[left];
-        array[left] = array[right];
-        array[right] = temp;
+        swapArrayElements(array, left, right);
 
-        const secondStep: StepDetails = {
+        steps.push({
           firstHighlight: right,
           secondHighlight: left,
           swap: [[left, right]],
-        };
-        steps.push(secondStep);
+        });
       }
     } else {
       let i = Math.floor((right + left) / 2);
 
-      const thirdStep: StepDetails = {
+      steps.push({
         firstArea: [left, i],
         secondArea: [i + 1, right],
-      };
-      steps.push(thirdStep);
+      });
 
       mergeSort(array, steps, left, i - 1);
       mergeSort(array, steps, i, right);
@@ -55,13 +51,12 @@ function merge(
 ) {
   let j = mid;
   while (j <= right) {
-    const firstStep: StepDetails = {
+    steps.push({
       firstHighlight: j,
       secondHighlight: j - 1,
       firstArea: [left, j],
       secondArea: [j + 1, right],
-    };
-    steps.push(firstStep);
+    });
 
     if (array[j] < array[j - 1]) {
       let firstBigger = left;
@@ -74,20 +69,17 @@ function merge(
 
       const swaps: [number, number][] = [];
       for (let x = j; x > firstBigger; x--) {
-        let temp = array[x];
-        array[x] = array[x - 1];
-        array[x - 1] = temp;
+        swapArrayElements(array, x, x - 1);
         swaps.push([x, x - 1]);
       }
 
-      const secondStep: StepDetails = {
+      steps.push({
         firstHighlight: firstBigger,
         secondHighlight: j,
         firstArea: [left, j],
         secondArea: [j + 1, right],
         swap: swaps,
-      };
-      steps.push(secondStep);
+      });
     }
     j++;
   }
