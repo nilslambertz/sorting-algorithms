@@ -7,7 +7,12 @@ module.exports = {
       fontFamily: {
         sans: ["Roboto", ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        darkgray: "#171717",
+        lightgray: "#525252",
+      },
     },
   },
+  darkMode: "class",
   plugins: [],
 };
