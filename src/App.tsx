@@ -42,8 +42,6 @@ export default function App() {
     localStorage.getItem(THEME_KEY) || Themes.LIGHT
   );
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     createNewArray();
   }, [numberOfElements]);
