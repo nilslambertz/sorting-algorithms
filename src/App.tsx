@@ -13,6 +13,11 @@ import Footer from "./Components/Footer/Footer";
 import Stats from "./Components/Stats/Stats";
 
 const MAX_ELEMENTS = 600;
+const THEME_KEY = "THEME";
+enum Themes {
+  LIGHT = "LIGHT",
+  DARK = "DARK",
+}
 
 export default function App() {
   const [array, setArray] = useState<number[]>([]);
@@ -32,6 +37,12 @@ export default function App() {
 
   const [numberOfSwaps, setNumberOfSwaps] = useState(0);
   const [executionTime, setExecutionTime] = useState(0);
+
+  const [theme, setTheme] = useState(
+    localStorage.getItem(THEME_KEY) || Themes.LIGHT
+  );
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     createNewArray();
@@ -159,30 +170,45 @@ export default function App() {
     setSorted(arrayIsSorted(newArray));
   };
 
+  const toggleTheme = () => {
+    if (theme === Themes.LIGHT) {
+      setTheme(Themes.DARK);
+      localStorage.setItem(THEME_KEY, Themes.DARK);
+    } else {
+      setTheme(Themes.LIGHT);
+      localStorage.setItem(THEME_KEY, Themes.LIGHT);
+    }
+  };
+
   return (
-    <div className="App w-full h-full flex flex-col bg-blue-800 bg-opacity-80">
-      <NavBar
-        currentAlgorithm={algorithm}
-        animationRunning={animationRunning}
-        setAlgorithm={changeAlgorithm}
-      />
-      <SettingsBar
-        maxElems={MAX_ELEMENTS}
-        numberOfElements={numberOfElements}
-        animationRunning={animationRunning}
-        animationSpeed={animationSpeed}
-        changeElemNumber={changeNumberOfElements}
-        newArrayClick={createNewArray}
-        animationClick={toggleAnimationRunning}
-        changeSpeed={changeSpeed}
-      />
-      <Stats
-        executionTime={executionTime}
-        numberOfSwaps={numberOfSwaps}
-        totalNumberOfSwaps={totalNumberOfSwaps}
-      ></Stats>
-      <Main array={array} currentStep={currentStep} sorted={sorted} />
-      <Footer></Footer>
+    <div
+      className={"App w-full h-full " + (theme === Themes.DARK ? "dark" : "")}
+    >
+      {" "}
+      <div className="w-full h-full flex flex-col bg-blue-800 bg-opacity-80 dark:bg-darkgray dark:bg-opacity-90">
+        <NavBar
+          currentAlgorithm={algorithm}
+          animationRunning={animationRunning}
+          setAlgorithm={changeAlgorithm}
+        />
+        <SettingsBar
+          maxElems={MAX_ELEMENTS}
+          numberOfElements={numberOfElements}
+          animationRunning={animationRunning}
+          animationSpeed={animationSpeed}
+          changeElemNumber={changeNumberOfElements}
+          newArrayClick={createNewArray}
+          animationClick={toggleAnimationRunning}
+          changeSpeed={changeSpeed}
+        />
+        <Stats
+          executionTime={executionTime}
+          numberOfSwaps={numberOfSwaps}
+          totalNumberOfSwaps={totalNumberOfSwaps}
+        ></Stats>
+        <Main array={array} currentStep={currentStep} sorted={sorted} />
+        <Footer toggleTheme={toggleTheme}></Footer>
+      </div>
     </div>
   );
 }
