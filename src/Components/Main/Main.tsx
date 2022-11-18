@@ -32,7 +32,7 @@ export default function Main({ array, currentStep, sorted }: MainProps) {
         if (index === secondHighlight)
           specialStyle = "bg-blue-400 dark:bg-blue-600";
         if (index === importantHighlight)
-          specialStyle = "bg-red-400 dark:bg-blue-600";
+          specialStyle = "bg-red-400 dark:bg-red-600";
 
         if (sorted)
           specialStyle =
